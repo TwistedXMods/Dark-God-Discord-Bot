@@ -97,5 +97,47 @@
 <li>
 <p>shutdown | blacklist | leave | reboot | reload | setstatus | setgame</p>
 </li>
+  <li>
+<p>How to Setup</p>
+</li>
+<li>
+<p>1. Download Node.js on windows Host: https://nodejs.org/en/ </p>
+</li>
+</li>
+<p>2. Download Node.js on Ubuntu / Debian / Linux Mint Host: https://computingforgeeks.com/how-to-install-nodejs-on-ubuntu-debian-linux-mint/ </p>
+</li>
+</li>
+<p>3. Go to Discord developers page: https://discord.com/developers/applications/ </p>
+</li>
+</li>
+<p>4. Go to Discord developers page: https://discord.com/developers/applications/ </p>
+</li>
+</li>
+<p>5. Go to Google developers page and u will need this api key: https://console.developers.google.com/apis/library/youtube.googleapis.com?q=youtube&id=125bab65-cfb6-4f25-9826-4dcc309bc508&project=eighth-sensor-283706</p>
+</li>
+</li>
+<p>6. Go to crypto page to get your api key: https://crypto.com/exchange </p>
+</li>
+</li>
+<p>After you get all of that installed run the following commands for Ubuntu / Debian / Linux Mint Host</p>
+</li>
+</li>
+<p>1. sudo apt update</p>
+</li>
+</li>
+<p>2. sudo apt upgrade</p>
+</li>
+</li>
+<p>After that run the following commands windows or Ubuntu / Debian / Linux Mint Host's</p>
+</li>
+</li>
+<p>npm install package.json</p>
+</li>
+</li>
+<p>After that run the following command " node . "</p>
+</li>
+</li>
+<p>and that is it you're done enjoy</p>
+</li>
 </li>
 </ul>
