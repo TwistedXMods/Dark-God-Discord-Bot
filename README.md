@@ -1,7 +1,7 @@
 <p><strong>Dark God</strong> Commands</p>
 <ul>
 <li>
-<p>WebSite: https://twistedxmodz.tk/</p>
+<p>WebSite: https://twistedxmods.com</p>
 </li>
 <li>
 <p>Bots Prefix 
