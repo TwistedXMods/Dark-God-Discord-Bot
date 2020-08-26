@@ -1,8 +1,8 @@
 <p><strong>Dark God</strong> Commands</p>
 <ul>
-  <a href="https://top.gg/bot/491320185655918593" >
+  <center  /><a href="https://top.gg/bot/491320185655918593" >
   <img src="https://top.gg/api/widget/491320185655918593.svg" alt="Dark God" />
-</a>
+</a><center>
 <li>
 <p>WebSite: https://twistedxmods.com</p>
 </li>
