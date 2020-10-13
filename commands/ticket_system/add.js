@@ -1,6 +1,6 @@
 // © 2019 Fraffel Media. MultiBot is created by FAXES (FAXES#8655). View the license!
 const Discord = require("discord.js");
-const botconfig = require("../../config.json");
+const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
     message.delete();

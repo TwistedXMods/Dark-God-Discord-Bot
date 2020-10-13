@@ -1,0 +1,94 @@
+{
+    "bot_setup": {
+        "prefix": "--",
+        "token": "Your Discord Bot token",
+        "cat_api": "http://aws.random.cat/meow",
+        "dog_api": "https://dog.ceo/api/breeds/image/random",
+        "copyright": "© 2020 Twisted X Modz - All Rights Reserved",
+        "bot_status": "online",
+        "bot_game_type": "WATCHING",
+        "bot_game": "--help",
+        "main_embed_color": "#ff0000",
+        "debug_mode": false
+    },
+
+    "module_toggles": {
+        "welcome_leave_channel": false,
+        "join_role": false,
+        "logs": true,
+        "moderation_commands": true,
+        "mod_logs": true,
+        "fun_commands": true,
+        "utility_commands": true,
+        "ticket_system": true,
+        "filter_lang_links": false,
+        "member_count_channel": true,
+        "General_module": true,
+        "Owner_module": true,
+        "Misc_module": true,
+        "jokes_module": true,
+        "info_module": true,
+        "Tools_module": true,
+        "emojis_module": true,
+        "Randomstuff_module": true,
+        "Servers_module": true,
+        "level_module": true,
+        "giveaway_module": false,
+        "verify_module": true
+    },
+
+    "channel_setup": {
+        "welcome_channel": " your need to set this up or the bot will not work",
+        "general_logs_channel": " your need to set this up or the bot will not work",
+        "kick_logs_channel": " your need to set this up or the bot will not work",
+        "ban_logs_channel": " your need to set this up or the bot will not work",
+        "warning_logs_channel": " your need to set this up or the bot will not work",
+        "mute_logs_channel": " your need to set this up or the bot will not work",
+        "command_logs_channel": " your need to set this up or the bot will not work",
+        "ticket_category": " your need to set this up or the bot will not work"
+    },
+
+    "join_roles": {
+        "role": " your need to set this up or the bot will not work"
+    },
+
+
+    "ticket_system": {
+        "support_role": " your need to set this up or the bot will not work",
+        "auto_reply": true,
+        "auto_reply_message": "Hey, \nThanks for making a ticket! We will be sure to reply to you as soon as a member of support is available."
+    },
+
+    "suggestion_setup": {
+        "suggestion_channel": " your need to set this up or the bot will not work"
+    },
+
+    "verify_setup": {
+        "verify_channel": " your need to set this up or the bot will not work",
+        "verify_role": " your need to set this up or the bot will not work"
+    },
+
+    "giveaway_Setup": {
+        "hostedBy": true,
+        "everyoneMention": true
+    },
+
+    "filter_module": {
+        "language_bypass_role": "Role ID Here",
+        "link_bypass_role": "Role ID Here",
+        "filter_links": ["bing.com", "example.com"],
+        "filter_words": ["fuck", "nigger", "go", "here", "see docs for easy example!"]
+    },
+
+    "moderation_module": {
+        "mute_role": "Muted",
+        "DM_kicked_user": true,
+        "DM_banned_user": true,
+        "DM_muted_user": true,
+        "DM_warned_user": true
+    },
+
+    "member_count_module": {
+        "member_count_channel": " your need to set this up or the bot will not work"
+    }
+}
