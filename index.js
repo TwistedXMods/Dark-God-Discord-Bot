@@ -359,10 +359,75 @@ if(botconfig["module_toggles"].verify_module) {
     });
 }
 
+if(botconfig["module_toggles"].memes_module) {
+    fs.readdir("./commands/memes_module/", (err, files) => {
+        if(err) console.log(err);
+        let jsfile = files.filter(f => f.split(".").pop() === "js")
+        if(jsfile.length <= 0){
+            console.log('\x1b[31m%s\x1b[0m', "Could not folder Memes.");
+            return;
+        }
+
+        jsfile.forEach((f, i) =>{
+            let props = require(`./commands/memes_module/${f}`);
+            if(botconfig["bot_setup"].debug_mode) {
+                console.log(`${f} loaded!`);
+            }
+            bot.commands.set(props.help.name, props);
+            bot.commands.set(props.help.name2, props);
+        });
+        console.log('\x1b[36m%s\x1b[0m', "- Memes Module Loaded!")
+    });
+}
+
+if(botconfig["module_toggles"].nsfw_module) {
+    fs.readdir("./commands/nsfw_module/", (err, files) => {
+        if(err) console.log(err);
+        let jsfile = files.filter(f => f.split(".").pop() === "js")
+        if(jsfile.length <= 0){
+            console.log('\x1b[31m%s\x1b[0m', "Could not folder NSFW.");
+            return;
+        }
+
+        jsfile.forEach((f, i) =>{
+            let props = require(`./commands/nsfw_module/${f}`);
+            if(botconfig["bot_setup"].debug_mode) {
+                console.log(`${f} loaded!`);
+            }
+            bot.commands.set(props.help.name, props);
+            bot.commands.set(props.help.name2, props);
+        });
+        console.log('\x1b[36m%s\x1b[0m', "- NSFW Module Loaded!")
+    });
+}
+
+if(botconfig["module_toggles"].economy_module) {
+    fs.readdir("./commands/economy_module/", (err, files) => {
+        if(err) console.log(err);
+        let jsfile = files.filter(f => f.split(".").pop() === "js")
+        if(jsfile.length <= 0){
+            console.log('\x1b[31m%s\x1b[0m', "Could not folder Economy.");
+            return;
+        }
+
+        jsfile.forEach((f, i) =>{
+            let props = require(`./commands/economy_module/${f}`);
+            if(botconfig["bot_setup"].debug_mode) {
+                console.log(`${f} loaded!`);
+            }
+            bot.commands.set(props.help.name, props);
+            bot.commands.set(props.help.name2, props);
+        });
+        console.log('\x1b[36m%s\x1b[0m', "- Economy Module Loaded!")
+    });
+}
+
 bot.on('error', console.error);
 bot.on("ready", async () => {
     console.log('\x1b[32m%s\x1b[0m', `Dark God is online and set up! I'm on ${bot.guilds.size} servers.`);
     bot.user.setActivity(botconfig["bot_setup"].bot_game, {type: botconfig["bot_setup"].bot_game_type});
+   // bot.user.setActivity(botconfig["bot_setup"].bot_game1, {type: botconfig["bot_setup"].bot_game_type});
+    //bot.user.setActivity(`Total Users ${member.guild.memberCount}`, {type: botconfig["bot_setup"].bot_game_type});
     bot.user.setStatus(botconfig["bot_setup"].bot_status)
 })
 
@@ -405,9 +470,9 @@ bot.on('guildMemberAdd', member => {
         channel.send(`Welcome to the Gaming Hub server, ${member}`);
     }
     // Member count channel update
-    if(botconfig["module_toggles"].member_count_channel) {
-        member.guild.channels.find(channel => channel.id === botconfig["member_count_module"].member_count_channel).setName(`Member Count: ${member.guild.memberCount}`);
-    }
+    //if(botconfig["module_toggles"].member_count_channel) {
+      //  member.guild.channels.find(channel => channel.id === botconfig["member_count_module"].member_count_channel).setName(`Member Count: ${member.guild.memberCount}`);
+    //}
 });
 
 // Leave Message
@@ -417,10 +482,10 @@ bot.on('guildMemberRemove', member => {
         if (!channel) return console.log("leave channel not found (Config: 'welcome_channel')");
         channel.send(`${member}**Left**`);
     }
-    // Member count channel update
-    if(botconfig["module_toggles"].member_count_channel) {
-        member.guild.channels.find(channel => channel.id === botconfig["member_count_module"].member_count_channel).setName(`Member Count: ${member.guild.memberCount}`);
-    }
+  //  // Member count channel update
+//if(botconfig["module_toggles"].member_count_channel) {
+  //     member.guild.channels.find(channel => channel.id === botconfig["member_count_module"].member_count_channel).setName(`Member Count: ${member.guild.memberCount}`);
+    //}
 });
 
 // Message Delete Logger

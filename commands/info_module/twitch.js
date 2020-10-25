@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
 .addField('My Twitch channel' , 'https://www.twitch.tv/twisted_x_420')
    
-.setTimestamp()
+//.setTimestamp()
 .setFooter(botconfig["bot_setup"].copyright);
     
     message.channel.send(botembed);

@@ -1,7 +1,7 @@
 const ms = require('ms');
 const botconfig = require("../../botconfig.json");
 
-exports.run = async (client, message, args) => {
+exports.run = async (bot, message, args) => {
 
     // If the member doesn't have enough permissions
     if(!message.member.hasPermission('MANAGE_MESSAGES') && !message.member.roles.cache.some((r) => r.name === "Giveaways")){
@@ -16,9 +16,9 @@ exports.run = async (client, message, args) => {
     // try to found the giveaway with prize then with ID
     let giveaway = 
     // Search with giveaway prize
-    client.giveawaysManager.giveaways.find((g) => g.prize === args.join(' ')) ||
+    bot.giveawaysManager.giveaways.find((g) => g.prize === args.join(' ')) ||
     // Search with giveaway ID
-    client.giveawaysManager.giveaways.find((g) => g.messageID === args[0]);
+    clbotient.giveawaysManager.giveaways.find((g) => g.messageID === args[0]);
 
     // If no giveaway was found
     if(!giveaway){
@@ -26,7 +26,7 @@ exports.run = async (client, message, args) => {
     }
 
     // Edit the giveaway
-    client.giveawaysManager.edit(giveaway.messageID, {
+    bot.giveawaysManager.edit(giveaway.messageID, {
         setEndTimestamp: Date.now()
     })
     // Success message

@@ -9,7 +9,7 @@ if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send
         .setAuthor(`Important Announcement!`, message.author.avatarURL)
         .setColor(botconfig["bot_setup"].main_embed_color)
         .setDescription(`${botmessage}.`)
-        .setTimestamp()
+       // .setTimestamp()
         .setFooter(botconfig["bot_setup"].copyright);
 
         try{

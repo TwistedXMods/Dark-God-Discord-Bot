@@ -24,7 +24,7 @@ setTimeout(() => {
 randomPuppy('memes')
     .then(url => {
         const embed = new Discord.RichEmbed()
-            .setTimestamp()
+           // .setTimestamp()
             .setImage(url)
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setFooter(botconfig["bot_setup"].copyright);

@@ -14,7 +14,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor(botconfig["bot_setup"].main_embed_color)
     .addField("Hours", hours)
     .addField("Minutes", minutes)
-    .setTimestamp()
+   // .setTimestamp()
     .setFooter(`${botconfig["bot_setup"].copyright}`)
     
     message.channel.send(uptimeEmbed).then(msg => msg.delete(10000));

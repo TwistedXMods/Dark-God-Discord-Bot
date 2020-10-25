@@ -26,7 +26,6 @@ module.exports.run = async (bot, message, args) => {
             .setColor(botconfig["bot_setup"].main_embed_color)
 				.setURL(body.url)
 				.setTitle(`On this day (${body.date})...`)
-                .setTimestamp()
                 .setFooter(botconfig["bot_setup"].copyright)
 				.setDescription(`${event.year}: ${event.text}`)
 				.addField('❯ See More',

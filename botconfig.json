@@ -1,20 +1,23 @@
 {
     "bot_setup": {
         "prefix": "--",
-        "token": "Your Discord Bot token",
+        "master":"Your Discord User ID",
+        "token": "Your Bot token",
         "cat_api": "http://aws.random.cat/meow",
         "dog_api": "https://dog.ceo/api/breeds/image/random",
-        "copyright": "© 2020 Twisted X Modz - All Rights Reserved",
+        "copyright": "© 2018 - 2020 Twisted X Modz - All Rights Reserved",
         "bot_status": "online",
         "bot_game_type": "WATCHING",
-        "bot_game": "--help",
+        "bot_game": "Happy Holloween | --help",
         "main_embed_color": "#ff0000",
+        "Thumbnail": "https://cdn.discordapp.com/avatars/451505551118041093/a_22817e02468fae43a52c43c929017513.gif?size=1024",
         "debug_mode": false
     },
 
     "module_toggles": {
         "welcome_leave_channel": false,
         "join_role": false,
+        "verify": false,
         "logs": true,
         "moderation_commands": true,
         "mod_logs": true,
@@ -34,38 +37,41 @@
         "Servers_module": true,
         "level_module": true,
         "giveaway_module": false,
+        "nsfw_module": true,
+        "memes_module": true,
+        "economy_module": false,
         "verify_module": true
     },
 
     "channel_setup": {
-        "welcome_channel": " your need to set this up or the bot will not work",
-        "general_logs_channel": " your need to set this up or the bot will not work",
-        "kick_logs_channel": " your need to set this up or the bot will not work",
-        "ban_logs_channel": " your need to set this up or the bot will not work",
-        "warning_logs_channel": " your need to set this up or the bot will not work",
-        "mute_logs_channel": " your need to set this up or the bot will not work",
-        "command_logs_channel": " your need to set this up or the bot will not work",
-        "ticket_category": " your need to set this up or the bot will not work"
+        "welcome_channel": "722653744453517333",
+        "general_logs_channel": "722653744453517333",
+        "kick_logs_channel": "722653744453517333",
+        "ban_logs_channel": "722653744453517333",
+        "warning_logs_channel": "722653744453517333",
+        "mute_logs_channel": "722653744453517333",
+        "command_logs_channel": "722653744453517333",
+        "ticket_category": "769747792427745292"
     },
 
     "join_roles": {
-        "role": " your need to set this up or the bot will not work"
+        "role": "722652326208208946"
     },
 
 
     "ticket_system": {
-        "support_role": " your need to set this up or the bot will not work",
+        "support_role": "769742531746594847",
         "auto_reply": true,
         "auto_reply_message": "Hey, \nThanks for making a ticket! We will be sure to reply to you as soon as a member of support is available."
     },
 
     "suggestion_setup": {
-        "suggestion_channel": " your need to set this up or the bot will not work"
+        "suggestion_channel": "734050255586328667"
     },
 
     "verify_setup": {
-        "verify_channel": " your need to set this up or the bot will not work",
-        "verify_role": " your need to set this up or the bot will not work"
+        "verify_channel": "722655983142305832",
+        "verify_role": "722652326208208946"
     },
 
     "giveaway_Setup": {
@@ -89,6 +95,6 @@
     },
 
     "member_count_module": {
-        "member_count_channel": " your need to set this up or the bot will not work"
+        "member_count_channel": "761012629275541509"
     }
 }

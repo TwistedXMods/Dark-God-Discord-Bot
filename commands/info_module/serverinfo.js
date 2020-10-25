@@ -44,7 +44,7 @@ exports.run = (client, message, args) =>{
         .addField('Bots', checkBots(message.guild), true)
         .addField('Online', checkOnlineUsers(message.guild))
         .setFooter(botconfig["bot_setup"].copyright)
-        .setTimestamp(message.guild.createdAt);
+       // .setTimestamp(message.guild.createdAt);
 
     return message.channel.send(serverembed);
 }

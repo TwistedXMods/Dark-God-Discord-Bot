@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription(`**LEVEL** - ${level}
 **XP** - ${remxp}/${levelxp}`)
     
-.setTimestamp()
+//.setTimestamp()
 .setFooter(`${botconfig["bot_setup"].copyright}`);
 message.channel.send(botembed);
     

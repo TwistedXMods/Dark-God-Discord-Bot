@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
     .setTitle('Bot News')
     .addField(':rotating_light: All updates for Twisted X Modz', 'will be listed Here :rotating_light:')
     .addField('No News', 'Yet')
-	.setTimestamp()
+//	.setTimestamp()
     .setFooter(botconfig["bot_setup"].copyright);
     
     message.author.send(botembed);

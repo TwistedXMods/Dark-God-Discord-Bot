@@ -34,7 +34,7 @@ module.exports.run = async (bot, message, args) => {
 
  //.addField('GTAV PC 1 Bill Recovery' , 'What do you get? = | 1 Billion GTA online $$ | Rank 1-700 | +Max Skill | +Trophies | +Hair Styles | +Tattoos | +Clothing | +Chrome Rims | +Vehicle Mods | +Weapon Mods | +Weapon Tints | Only $10' )
 
-.setTimestamp()
+//.setTimestamp()
 .setFooter(botconfig["bot_setup"].copyright);
     
 message.author.send(botembed);

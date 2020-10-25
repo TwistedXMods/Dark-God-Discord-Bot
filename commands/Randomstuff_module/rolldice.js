@@ -11,7 +11,7 @@ exports.run = (client, message, args) =>{
         .addField("First dice", dice[Math.floor(Math.random()*dice.length)], true)
         .addField("Second dice", dice[Math.floor(Math.random()*dice.length)], true)
         .setFooter(botconfig["bot_setup"].copyright)
-        .setTimestamp();
+       // .setTimestamp();
 
     return message.channel.send(embed);    
 }

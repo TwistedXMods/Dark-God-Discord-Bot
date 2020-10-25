@@ -25,7 +25,6 @@ module.exports.run = async (bot, message, args) => {
     .addField('3. SoftArmy ', 'loves kids')
     .addField('4. SoftArmy ', 'is fat')
     .addField('4. SoftArmy ', 'is a noob')
-    .setTimestamp()
     .setFooter(botconfig["bot_setup"].copyright);
     //.setFooter('© 2020 Twisted X Modz - All Rights Reserved');
     

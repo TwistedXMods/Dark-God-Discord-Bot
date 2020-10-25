@@ -50,7 +50,7 @@ exports.run = (client, message, args) =>{
             .setTitle(`Current weather in ${location.city} part of the region ${location.region} in ${location.country}`)
             .setThumbnail(`https://westwoodhorizon.com/wp-content/uploads/2018/03/category_weather_500x500.png`)
             .setColor(botconfig["bot_setup"].main_embed_color)
-            .setTimestamp()
+            //.setTimestamp()
             .addField(`Wind speed | Direction | Chill:`, `Wind Speed: ${wind.speed} ${units.speed} `+`\n`+`Wind direction: ${wind.direction}°`+`\n`+`Wind chill: ${wind.chill}°`, false)
             .addField(`Humidity | Visibility:`, `Humidity: ${atmosphere.humidity}% `+`\n`+`Visibility: ${atmosphere.visibility} ${units.distance}`, true)
             .addField(`Pressure | Rising:`, `Pressure: ${atmosphere.pressure} ${units.pressure} `+`\n`+`Rising: ${sunRise}`, true)

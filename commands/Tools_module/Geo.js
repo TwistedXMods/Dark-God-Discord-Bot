@@ -78,7 +78,7 @@ setTimeout(() => {
       //Message: ${data.message}
       //`)
       .setFooter(botconfig["bot_setup"].copyright)
-      .setTimestamp()
+      //.setTimestamp()
     ).catch(console.error);
   }
 

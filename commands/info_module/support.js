@@ -19,7 +19,7 @@ module.exports.run = async (bot, message, args) => {
 
 .addField('Donate','https://www.paypal.me/TwistedXModz?locale.x=en_US')
 
-.setTimestamp()
+//.setTimestamp()
 .setFooter(botconfig["bot_setup"].copyright);
     
 message.author.send(botembed);

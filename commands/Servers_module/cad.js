@@ -9,7 +9,7 @@ module.exports.run = async (bot, message, args) => {
     .setDescription("Twisted X Modz RP Cad/MDT")
     .setColor(botconfig["bot_setup"].main_embed_color)
     .setThumbnail(sicon)
-    .addField("URL", "https://cad.twistedxmods.com/")
+    .addField("URL", "https://cad.twistedxmodz.xyz/")
     .addField("Join The Discord Server", "<https://discord.gg/G8PsfGB> \n Click the above only once.")
     .setFooter(botconfig["bot_setup"].copyright);
     message.channel.send(ipembed)

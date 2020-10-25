@@ -7,7 +7,7 @@ module.exports.run = async (bot, message, args) => {
 
 .addField('My YouTube channel' , 'https://www.youtube.com/channel/UC1cISzeYvNfdYBLV0lJkhvQ')
    
-.setTimestamp()
+//.setTimestamp()
 .setFooter(botconfig["bot_setup"].copyright);
     
     message.channel.send(botembed);
