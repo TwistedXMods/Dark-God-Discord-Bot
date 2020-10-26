@@ -35,7 +35,7 @@ exports.run = (client, message, args) =>{
     let serverembed = new Discord.RichEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
         .setAuthor(`Dark God`, client.user.displayAvatarURL)
-        .addField(`Version`,`6.5`, true)
+        .addField(`Version`,`8.0`, true)
         .addField(`Library`,`Discord.js` , true)
         .addField(`Creator`,`Twisted X Modz#6666`, true)
         .addField(`Servers`, `${client.guilds.size}`, true)

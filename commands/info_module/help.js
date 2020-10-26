@@ -6,60 +6,63 @@ module.exports.run = async (bot, message, args) => {
    
     let bot1embed = new Discord.RichEmbed()
     .setAuthor(`Help Page`)
-    .addField('Bots Prefix' , `${botconfig["bot_setup"].prefix}`)
+    .addField('Darks Prefix' , `${botconfig["bot_setup"].prefix}`)
     .setColor(botconfig["bot_setup"].main_embed_color)
-    .addField('Admin Commands' , 'addrole | ban | clear | kick | mute | removerole ')
+    .addField('Admin Commands',`${botconfig["bot_commands"].Admin}`)
  
-    .addField('emojis Commands','emojify | emojis')
+    .addField('Emojis Commands',`${botconfig["bot_commands"].Emojis}`)
     
-    .addField('Fun Commands' , 'deep | memepoke | moji | remindme | speak | roll | f | hammer | punch | advice | fight | shibe | slap | smack | smug | cowsay')
+    .addField('Fun Commands',`${botconfig["bot_commands"].Fun}`)
     
-    .addField('General Commands','afk | rolldice | today-in-hisotry: { Example 08 26} | insult @ a user')
+    .addField('General Commands',`${botconfig["bot_commands"].General}`)
     
-    .addField('info Commands','shop | help | info | botnews | serverinfo | serverinvite | userinfo | YT | twitch | support')
+    .addField('info Commands',`${botconfig["bot_commands"].info}`)
     
-    .addField('jokes Commands','amiajoke | joke | dadjoke')
+    .addField('Jokes Commands',`${botconfig["bot_commands"].Jokes}`)
     
-    .addField('Meme Commands','meme | gayrate @user | dankmeme')
+    .addField('Meme Commands',`${botconfig["bot_commands"].Meme}`)
     
-    .addField('NSFW Commands','4k | anal | ass | pgif | hentai_anal | holo | lewd | pussy | thigh ')
+    .addField('NSFW Commands',`${botconfig["bot_commands"].NSFW}`)
     
-    .addField('Moderation Commands','| say | unwarn | warn | warnlvl | announce')
+    .addField('Moderation Commands',`${botconfig["bot_commands"].Moderation}`)
     message.author.send(bot1embed);
     
     let bot2embed = new Discord.RichEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
-    .addField('Randomstuff Commands','distance | dogs | randomcolor')
+    .addField('Randomstuff Commands',`${botconfig["bot_commands"].Randomstuff}`)
 
-    .addField('Utility Commands' ,'ping | report | timer | uptime')
+    .addField('Utility Commands',`${botconfig["bot_commands"].Utility}`)
     
-    .addField('level Commands' ,'level " level <user> "')
+    .addField('Level Commands',`${botconfig["bot_commands"].Level}`)
     
-    .addField('verify Commands' ,'verify " Verify yourself on our server"')
+    .addField('Verify Commands',`${botconfig["bot_commands"].Verify}`)
     
-    .addField('Support Commands' ,'add | remove | new | close | rename')
+    .addField('Support Commands',`${botconfig["bot_commands"].Support}`)
     
-    .addField('FiveM Game Servers' ,'server1 | server2 | cad | news | keys')
+    .addField('FiveM Game Servers',`${botconfig["bot_commands"].FiveM}`)
     
-    .addField('Tools Commands' ,'whois " IP Lookup "| myname | userrole | dm = " DM a user in the server " | ad |')
+   // .addField('Music Commands',`${botconfig["bot_commands"].Music}`)
+
+    .addField('Tools Commands',`${botconfig["bot_commands"].Tools}`)
     
-    .addField('Misc Commands' ,'covid "all/US/JP ETC" | weather | ')
+    .addField('Misc Commands',`${botconfig["bot_commands"].Misc}`)
+
+    .addField('Game Stats Commands',`${botconfig["bot_commands"].Stats}`)
     
-    .addField('Bot Owner Commands' ,'shutdown | blacklist | leave | reboot | reload | setstatus | setgame | gann | backdoor | ')
+    .addField('Bot Owner Commands',`${botconfig["bot_commands"].Owner}`)
     message.author.send(bot2embed);
 
     let bot3embed = new Discord.RichEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
-    .addField('Dark God ',' Important Links')
-    .addField('Bot invite', 'https://top.gg/bot/491320185655918593')
-    .addField('Forum', 'https://www.twistedxmodz.xyz/')
-    .addField('Donate', 'https://www.paypal.com/paypalme/TwistedXModz')
-    .addField('Support Server', 'https://discord.gg/5GMNEYM')
-    .addField('Store', 'https://www.twistedxmodz.xyz/dbtech-ecommerce/')
+    .addField('Darks',`${botconfig["bot_messages"].Important}`)
+    .addField('Darks Prefix',`${botconfig["bot_setup"].prefix}`)
+    .addField('invite',`${botconfig["bot_links"].invite}`)
+    .addField('Forum',`${botconfig["bot_links"].Forum}`)
+    .addField('Donate',`${botconfig["bot_links"].Donate}`)
+    .addField('Support Server', `${botconfig["bot_links"].Support_Server}`)
+    .addField('Store', `${botconfig["bot_links"].Store}`)
 .setFooter(botconfig["bot_setup"].copyright);
     message.author.send(bot3embed);
-
-//message.author.send(botembed);
 }
 module.exports.help = {
     name: "help",

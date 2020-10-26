@@ -5,19 +5,19 @@ const bot = new Discord.Client({disableEveryone: true});
 bot.commands = new Discord.Collection();
 
 // Bot startup
-console.log("Setting up Dark God Bot. this might take a few seconds!")
+console.log(`${botconfig["bot_messages"].Setup_log}`)
 fs.readdir("./commands/", (err, files) => {
     if(err) console.log(err);
     let jsfile = files.filter(f => f.split(".").pop() === "js")
     if(jsfile.length <= 0){
-        console.log("Could not folder commands.");
+        console.log(`${botconfig["bot_Commands_logs"].General_commands_log_error}`);
         return;
     }
 
     jsfile.forEach((f, i) =>{
         let props = require(`./commands/${f}`);
         if(botconfig["bot_setup"].debug_mode) {
-            console.log(`${f} loaded!`);
+            console.log(`${f} ${botconfig["bot_Commands_logs"].General_commands_log_loaded}`);
         }
         bot.commands.set(props.help.name, props);
         bot.commands.set(props.help.name2, props);
@@ -30,7 +30,7 @@ if(botconfig["module_toggles"].ticket_system) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Ticket System.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Ticket_error}`);
             return;
         }
 
@@ -41,7 +41,7 @@ if(botconfig["module_toggles"].ticket_system) {
             }
             bot.commands.set(props.help.name, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Ticket Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Ticket_Loaded}`)
     });
 }
 
@@ -50,7 +50,7 @@ if(botconfig["module_toggles"].utility_commands) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Utility.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].utility_error}`);
             return;
         }
 
@@ -61,7 +61,7 @@ if(botconfig["module_toggles"].utility_commands) {
             }
             bot.commands.set(props.help.name, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Utility Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].utility_Loaded}`)
     });
 }
 
@@ -70,7 +70,7 @@ if(botconfig["module_toggles"].moderation_commands) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Moderation.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Moderation_error}`);
             return;
         }
 
@@ -82,7 +82,7 @@ if(botconfig["module_toggles"].moderation_commands) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Moderation Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Moderation_Loaded}`)
     });
 }
 
@@ -91,7 +91,7 @@ if(botconfig["module_toggles"].fun_commands) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Fun.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].fun_error}`);
             return;
         }
 
@@ -103,7 +103,7 @@ if(botconfig["module_toggles"].fun_commands) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Fun Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].fun_Loaded}`)
     });
 }
 
@@ -112,7 +112,7 @@ if(botconfig["module_toggles"].General_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder General.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].General_error}`);
             return;
         }
 
@@ -124,7 +124,7 @@ if(botconfig["module_toggles"].General_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- General Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].General_loaded}`)
     });
 }
 
@@ -133,7 +133,7 @@ if(botconfig["module_toggles"].Tools_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Tools.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Tools_error}`);
             return;
         }
 
@@ -145,7 +145,7 @@ if(botconfig["module_toggles"].Tools_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Tools Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Tools_loaded}`)
     });
 }
 
@@ -154,7 +154,7 @@ if(botconfig["module_toggles"].Owner_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Owner.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Owner_error}`);
             return;
         }
 
@@ -166,7 +166,7 @@ if(botconfig["module_toggles"].Owner_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Owner Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Owner_loaded}`)
     });
 }
 
@@ -175,7 +175,7 @@ if(botconfig["module_toggles"].Misc_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Misc.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Misc_error}`);
             return;
         }
 
@@ -187,7 +187,7 @@ if(botconfig["module_toggles"].Misc_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Misc Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Misc_loaded}`)
     });
 }
 
@@ -196,7 +196,7 @@ if(botconfig["module_toggles"].jokes_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder jokes.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].jokes_error}`);
             return;
         }
 
@@ -208,7 +208,7 @@ if(botconfig["module_toggles"].jokes_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- jokes Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].jokes_loaded}`)
     });
 }
 
@@ -217,7 +217,7 @@ if(botconfig["module_toggles"].info_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder info.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].info_error}`);
             return;
         }
 
@@ -229,7 +229,7 @@ if(botconfig["module_toggles"].info_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- info Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].info_Loaded}`)
     });
 }
 
@@ -238,7 +238,7 @@ if(botconfig["module_toggles"].emojis_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder emojis.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].emojis_error}`);
             return;
         }
 
@@ -250,7 +250,7 @@ if(botconfig["module_toggles"].emojis_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- emojis Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].emojis_loaded}`)
     });
 }
 
@@ -259,7 +259,7 @@ if(botconfig["module_toggles"].Randomstuff_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Randomstuff.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Randomstuff_error}`);
             return;
         }
 
@@ -271,7 +271,7 @@ if(botconfig["module_toggles"].Randomstuff_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Randomstuff Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Randomstuff_loaded}`)
     });
 }
 
@@ -280,7 +280,7 @@ if(botconfig["module_toggles"].Servers_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Servers.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Servers_error}`);
             return;
         }
 
@@ -292,7 +292,7 @@ if(botconfig["module_toggles"].Servers_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Servers Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Servers_loaded}`)
     });
 }
 
@@ -301,7 +301,7 @@ if(botconfig["module_toggles"].level_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Level.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Level_error}`);
             return;
         }
 
@@ -313,7 +313,7 @@ if(botconfig["module_toggles"].level_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Level Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Level_loaded}`)
     });
 }
 
@@ -322,7 +322,7 @@ if(botconfig["module_toggles"].giveaway_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Giveaway.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Giveaway_error}`);
             return;
         }
 
@@ -334,7 +334,7 @@ if(botconfig["module_toggles"].giveaway_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Giveaway Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Giveaway_loaded}`)
     });
 }
 
@@ -343,7 +343,7 @@ if(botconfig["module_toggles"].verify_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Verify.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Verify_error}`);
             return;
         }
 
@@ -355,7 +355,7 @@ if(botconfig["module_toggles"].verify_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Verify Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Verify_loaded}`)
     });
 }
 
@@ -364,7 +364,7 @@ if(botconfig["module_toggles"].memes_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Memes.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Memes_error}`);
             return;
         }
 
@@ -376,7 +376,7 @@ if(botconfig["module_toggles"].memes_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Memes Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Memes_loaded}`)
     });
 }
 
@@ -385,7 +385,7 @@ if(botconfig["module_toggles"].nsfw_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder NSFW.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].NSFW_error}`);
             return;
         }
 
@@ -397,7 +397,7 @@ if(botconfig["module_toggles"].nsfw_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- NSFW Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].NSFW_loaded}`)
     });
 }
 
@@ -406,7 +406,7 @@ if(botconfig["module_toggles"].economy_module) {
         if(err) console.log(err);
         let jsfile = files.filter(f => f.split(".").pop() === "js")
         if(jsfile.length <= 0){
-            console.log('\x1b[31m%s\x1b[0m', "Could not folder Economy.");
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Economy_error}`);
             return;
         }
 
@@ -418,18 +418,99 @@ if(botconfig["module_toggles"].economy_module) {
             bot.commands.set(props.help.name, props);
             bot.commands.set(props.help.name2, props);
         });
-        console.log('\x1b[36m%s\x1b[0m', "- Economy Module Loaded!")
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].Economy_loaded}`)
+    });
+}
+
+if(botconfig["module_toggles"].invite_module) {
+    fs.readdir("./commands/invite_module/", (err, files) => {
+        if(err) console.log(err);
+        let jsfile = files.filter(f => f.split(".").pop() === "js")
+        if(jsfile.length <= 0){
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].invite_error}`);
+            return;
+        }
+
+        jsfile.forEach((f, i) =>{
+            let props = require(`./commands/invite_module/${f}`);
+            if(botconfig["bot_setup"].debug_mode) {
+                console.log(`${f} loaded!`);
+            }
+            bot.commands.set(props.help.name, props);
+            bot.commands.set(props.help.name2, props);
+        });
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].invite_loaded}`)
+    });
+}
+
+if(botconfig["module_toggles"].GameStats_module) {
+    fs.readdir("./commands/GameStats_module/", (err, files) => {
+        if(err) console.log(err);
+        let jsfile = files.filter(f => f.split(".").pop() === "js")
+        if(jsfile.length <= 0){
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].GameStats_error}`);
+            return;
+        }
+
+        jsfile.forEach((f, i) =>{
+            let props = require(`./commands/GameStats_module/${f}`);
+            if(botconfig["bot_setup"].debug_mode) {
+                console.log(`${f} loaded!`);
+            }
+            bot.commands.set(props.help.name, props);
+            bot.commands.set(props.help.name2, props);
+        });
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].GameStats_loaded}`)
+    });
+}
+
+if(botconfig["module_toggles"].Music_module) {
+    fs.readdir("./commands/Music_module/", (err, files) => {
+        if(err) console.log(err);
+        let jsfile = files.filter(f => f.split(".").pop() === "js")
+        if(jsfile.length <= 0){
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].music_error}`);
+            return;
+        }
+
+        jsfile.forEach((f, i) =>{
+            let props = require(`./commands/Music_module/${f}`);
+            if(botconfig["bot_setup"].debug_mode) {
+                console.log(`${f} loaded!`);
+            }
+            bot.commands.set(props.help.name, props);
+            bot.commands.set(props.help.name2, props);
+        });
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].music_loaded}`)
     });
 }
 
 bot.on('error', console.error);
 bot.on("ready", async () => {
-    console.log('\x1b[32m%s\x1b[0m', `Dark God is online and set up! I'm on ${bot.guilds.size} servers.`);
+    console.log('\x1b[32m%s\x1b[0m',`${botconfig["bot_messages"].Online_log} ${bot.guilds.size} servers.`);
     bot.user.setActivity(botconfig["bot_setup"].bot_game, {type: botconfig["bot_setup"].bot_game_type});
-   // bot.user.setActivity(botconfig["bot_setup"].bot_game1, {type: botconfig["bot_setup"].bot_game_type});
-    //bot.user.setActivity(`Total Users ${member.guild.memberCount}`, {type: botconfig["bot_setup"].bot_game_type});
     bot.user.setStatus(botconfig["bot_setup"].bot_status)
 })
+
+
+bot.on("guildCreate", server => {
+    if(botconfig["module_toggles"].Bot_Server_Add_message) {
+    let embed = new Discord.RichEmbed()
+      .setTitle(`${botconfig["bot_messages"].Thanks_message}`)
+      .addField('Bot Name',`${botconfig["bot_messages"].Bot_name}`)
+      .addField('Darks',`${botconfig["bot_messages"].Important}`)
+      .addField('Darks Prefix',`${botconfig["bot_setup"].prefix}`)
+      .addField('invite',`${botconfig["bot_links"].invite}`)
+      .addField('Forum',`${botconfig["bot_links"].Forum}`)
+      .addField('Donate',`${botconfig["bot_links"].Donate}`)
+      .addField('Support Server', `${botconfig["bot_links"].Support_Server}`)
+      .addField('Store', `${botconfig["bot_links"].Store}`)
+      .setColor(botconfig["bot_setup"].main_embed_color)
+      .setFooter(botconfig["bot_setup"].copyright);
+    server.owner.send(embed);
+      }
+
+  });
 
 bot.on("message", async message => {
     if(message.author.bot) return;
@@ -464,28 +545,41 @@ bot.on('guildMemberAdd', member => {
         if (!role) return console.log("role not found (Config: 'role')");
         member.addRole(role);
     }
-    if(botconfig["module_toggles"].welcome_leave_channel) {
-        const channel = member.guild.channels.find(channel => channel.id === botconfig["channel_setup"].welcome_channel);
-        if (!channel) return console.log("join channel not found (Config: 'welcome_channel')");
-        channel.send(`Welcome to the Gaming Hub server, ${member}`);
+    if(botconfig["module_toggles"].welcome_channel) {
+// Send the message to a designated channel on a server:
+  const channel = member.guild.channels.find(channel => channel.id === botconfig["channel_setup"].welcome_channel);
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;
+  // Send the message, mentioning the member
+  let embed1 = new Discord.RichEmbed()
+  .setTitle(`${botconfig["bot_messages"].Welcome_message} ${member.user.tag}`, member.user.displayAvatarURL)
+  //.setAuthor(`Welcome to the Discord server,`, member.user.displayAvatarURL,)
+  .setThumbnail(member.user.displayAvatarURL)
+  .addField('Date Joined', member.user.createdAt, true)
+  .addField('Total Members', member.guild.memberCount, true)
+
+    channel.send(embed1);
     }
-    // Member count channel update
-    //if(botconfig["module_toggles"].member_count_channel) {
-      //  member.guild.channels.find(channel => channel.id === botconfig["member_count_module"].member_count_channel).setName(`Member Count: ${member.guild.memberCount}`);
-    //}
 });
 
 // Leave Message
 bot.on('guildMemberRemove', member => {
-    if(botconfig["module_toggles"].welcome_leave_channel) {
-        const channel = member.guild.channels.find(channel => channel.id === botconfig["channel_setup"].welcome_channel);
-        if (!channel) return console.log("leave channel not found (Config: 'welcome_channel')");
-        channel.send(`${member}**Left**`);
+    if(botconfig["module_toggles"].leave_channel) {
+
+        // Send the message to a designated channel on a server:
+  const channel = member.guild.channels.find(channel => channel.id === botconfig["channel_setup"].leave_channel);
+  // Do nothing if the channel wasn't found on this server
+  if (!channel) return;
+  // Send the message, mentioning the member
+  let embed2 = new Discord.RichEmbed()
+  //.setTitle("leave")
+  .setAuthor(`${member.user.tag} Has left the server.`, member.user.displayAvatarURL,)
+  .setThumbnail(member.user.displayAvatarURL)
+  .addField('Date Joined', member.user.createdAt, true)
+  .addField('Total Members', member.guild.memberCount, true)
+
+    channel.send(embed2);
     }
-  //  // Member count channel update
-//if(botconfig["module_toggles"].member_count_channel) {
-  //     member.guild.channels.find(channel => channel.id === botconfig["member_count_module"].member_count_channel).setName(`Member Count: ${member.guild.memberCount}`);
-    //}
 });
 
 // Message Delete Logger
@@ -503,7 +597,7 @@ bot.on("messageDelete", message => {
         .setAuthor("Action Logs", bot.user.avatar_url)
         .setColor(botconfig["bot_setup"].main_embed_color)
         .setTimestamp()
-        .setFooter(`${botconfig["bot_setup"].copyright} | Made by HoldMyBeer#0001`)
+        .setFooter(`${botconfig["bot_setup"].copyright}`)
 
         .setDescription("**Action:** Message Delete")
         .addField("Message Author:", `${message.author.toString()} - Hash: ${message.author.tag} - ID: ${message.author.id}`)
@@ -528,7 +622,7 @@ bot.on("messageUpdate", (oldMessage, newMessage) => {
         .setAuthor("Action Logs", bot.user.avatar_url)
         .setColor(botconfig["bot_setup"].main_embed_color)
         .setTimestamp()
-        .setFooter(`${botconfig["bot_setup"].copyright} | Made by HoldMyBeer#0001`)
+        .setFooter(`${botconfig["bot_setup"].copyright} `)
 
         .setDescription("**Action:** Message Edited")
         .addField("Old Content", `${oldMessage.content}.`)
@@ -594,7 +688,7 @@ bot.on("guildMemberUpdate", async (oldMember, newMember) => {
             .setAuthor("Action Logs", bot.user.avatarURL)
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setTimestamp()
-            .setFooter(`${botconfig["bot_setup"].copyright} | Made by HoldMyBeer#0001`)
+            .setFooter(`${botconfig["bot_setup"].copyright} `)
 
             logEmbed.setDescription("**Action:** Nickname Changed")
             if (entry.executor.id == newMember.id) {
@@ -618,7 +712,7 @@ bot.on("guildMemberUpdate", async (oldMember, newMember) => {
             .setAuthor("Action Logs", bot.user.avatarURL)
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setTimestamp()
-            .setFooter(`${botconfig["bot_setup"].copyright} | Made by HoldMyBeer#0001`)
+            .setFooter(`${botconfig["bot_setup"].copyright} `)
 
             logEmbed.setDescription("**Action:** Roles Added")
             logEmbed.addField("Target User", `${newMember} - ${newMember.user.tag}`, true)
@@ -636,7 +730,7 @@ bot.on("guildMemberUpdate", async (oldMember, newMember) => {
             .setAuthor("Action Logs", bot.user.avatarURL)
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setTimestamp()
-            .setFooter(`${botconfig["bot_setup"].copyright} | Made by HoldMyBeer#0001`)
+            .setFooter(`${botconfig["bot_setup"].copyright} `)
 
             logEmbed.setDescription("**Action:** Roles Removed")
             logEmbed.addField("Target User", `${newMember} - ${newMember.user.tag}`, true)
@@ -662,7 +756,7 @@ if(botconfig["module_toggles"].filter_lang_links) {
                 return;
             case new RegExp(botconfig["filter_module"].filter_words.join("|")).test(message.content.toLowerCase()):
                 message.delete();
-                return message.channel.send(`You are not authorized to use that language here!`).then(msg => msg.delete(10000));
+                return message.channel.send(`${botconfig["bot_messages"].use_language_message}`).then(msg => msg.delete(10000));
         };
     });
 
@@ -677,7 +771,7 @@ if(botconfig["module_toggles"].filter_lang_links) {
                 return;
             case new RegExp(botconfig["filter_module"].filter_links.join("|")).test(message.content.toLowerCase()):
                 message.delete();
-                return message.channel.send(`You are not authorized to use post that language here!`).then(msg => msg.delete(10000)); 
+                return message.channel.send(`${botconfig["bot_messages"].post_language_message}`).then(msg => msg.delete(10000)); 
 
         };
     });

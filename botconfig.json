@@ -1,10 +1,8 @@
 {
     "bot_setup": {
         "prefix": "--",
-        "master":"Your Discord User ID",
-        "token": "Your Bot token",
-        "cat_api": "http://aws.random.cat/meow",
-        "dog_api": "https://dog.ceo/api/breeds/image/random",
+        "master":"Your discord id",
+        "token": "your bot token",
         "copyright": "© 2018 - 2020 Twisted X Modz - All Rights Reserved",
         "bot_status": "online",
         "bot_game_type": "WATCHING",
@@ -13,45 +11,160 @@
         "Thumbnail": "https://cdn.discordapp.com/avatars/451505551118041093/a_22817e02468fae43a52c43c929017513.gif?size=1024",
         "debug_mode": false
     },
+    "bot_API": {
+        "cat_api": "http://aws.random.cat/meow",
+        "dog_api": "https://dog.ceo/api/breeds/image/random",
+    },
+
+
+    "bot_links": {
+        "invite": "https://top.gg/bot/491320185655918593",
+        "Forum": "https://www.twistedxmodz.xyz/",
+        "Donate": "https://www.paypal.com/paypalme/TwistedXModz",
+        "Support_Server": "https://discord.gg/5GMNEYM",
+        "Store": "https://www.twistedxmodz.xyz/dbtech-ecommerce/"
+    },
+
+    "bot_messages": {
+        "bot_name": "Dark God",
+        "Thanks_message": "Thanks for adding me to your server!",
+        "Important": "Important Links",
+        "Welcome_message": "Welcome to the Discord server",
+        "Online_log": "Dark God is online and set up! I'm on",
+        "use_language_message": "You are not authorized to use that language here!",
+        "post_language_message": "You are not authorized to use post that language here!",
+        "Setup_log": "Setting up Dark God Bot. this might take a few seconds!",
+        "steam_message_error": "I was unable to find a steam profile with that name",
+        "steam_user_message": "I was unable to find a steam profile with that name",
+        "overwatch_error": "Please supply a platform to check. `pc`, `xbox` or `psn`",
+        "overwatch_supply": "Please supply a username.",
+        "overwatch_find": "Unable to find a user with that username.",
+        "overwatch_private": "This users stats are private and cant be seen by anyone.",
+        "csgo_error": "Remember the user platform -> steam",
+        "csgo_find": "I was unable to find csgo username",
+        "apex_platform": "Remember the user platform -> pc, xbox or psn",
+        "apex_tracking": "Whose mans am I tracking🤔",
+        "r6stats_platform": "Remember the user platform -> pc, xbox or psn",
+        "r6stats_Username": "Rainbow Six Seige Username Not Found"
+    },
+
+    "bot_Commands_logs": {
+        "General_commands_log_error": "Could not folder commands.",
+        "General_commands_log_loaded": "- commands Module Loaded!",
+        "Ticket_error": "Could not folder Ticket System.",
+        "Ticket_Loaded": "- Ticket Module Loaded!",
+        "utility_error": "Could not folder Utility.",
+        "utility_Loaded": "- Utility Module Loaded!",
+        "Moderation_error": "Could not folder Moderation.",
+        "Moderation_Loaded": "- Moderation Module Loaded!",
+        "fun_error": "Could not folder Fun.",
+        "fun_Loaded": "- Fun Module Loaded!",
+        "General_error": "Could not folder General.",
+        "General_loaded": "- General Module Loaded!",
+        "Tools_error": "Could not folder Tools.",
+        "Tools_loaded": "- Tools Module Loaded!",
+        "Owner_error": "Could not folder Owner.",
+        "Owner_loaded": "- Owner Module Loaded!",
+        "Misc_error": "Could not folder Misc.",
+        "Misc_loaded": "- Misc Module Loaded!",
+        "jokes_error": "Could not folder jokes.",
+        "jokes_loaded": "- jokes Module Loaded!",
+        "info_error": "Could not folder info.",
+        "info_Loaded": "- info Module Loaded!",
+        "emojis_error": "Could not folder emojis.",
+        "emojis_loaded": "- emojis Module Loaded!",
+        "Randomstuff_error": "Could not folder Randomstuff.",
+        "Randomstuff_loaded": "- Randomstuff Module Loaded!",
+        "Servers_error": "Could not folder Servers.",
+        "Servers_loaded": "- Servers Module Loaded!",
+        "Level_error": "Could not folder Level.",
+        "Level_loaded": "- Level Module Loaded!",
+        "Giveaway_error": "Could not folder Giveaway.",
+        "Giveaway_loaded": "- Giveaway Module Loaded!",
+        "Verify_error": "Could not folder Verify.",
+        "Verify_loaded": "- Verify Module Loaded!",
+        "Memes_error": "Could not folder Memes.",
+        "Memes_loaded": "- Memes Module Loaded!",
+        "NSFW_error": "Could not folder NSFW.",
+        "NSFW_loaded": "- NSFW Module Loaded!",
+        "Economy_error": "Could not folder Economy.",
+        "Economy_loaded": "- Economy Module Loaded!",
+        "GameStats_error": "Could not folder GameStats.",
+        "GameStats_loaded": "- GameStats Module Loaded!",
+        "invite_error": "Could not folder invite.",
+        "invite_loaded": "- invite Module Loaded!",
+        "music_error": "Could not folder Music.",
+        "music_loaded": "- Music Module Loaded!"
+    },
+
+
+    "bot_commands": {
+        "Admin": "addrole | ban | clear | kick | mute | removerole ",
+        "Emojis": "emojify | emojis",
+        "Fun": "deep | memepoke | moji | remindme | speak | roll | f | hammer | punch | advice | fight | shibe | slap | smack | smug | cowsay",
+        "General": "afk | rolldice | today-in-hisotry: { Example 08 26} | insult @ a user",
+        "info": "shop | help | info | botnews | serverinfo | serverinvite | userinfo | YT | twitch | support",
+        "Jokes": "amiajoke | joke | dadjoke",
+        "Meme": "meme | gayrate @user | dankmeme",
+        "NSFW": "4k | anal | ass | pgif | hentai_anal | holo | lewd | pussy | thigh",
+        "Moderation": "say | unwarn | warn | warnlvl | announce",
+        "Randomstuff": "distance | dogs | randomcolor",
+        "Utility": "ping | report | timer | uptime",
+        "Level": "level <user>" ,
+        "Verify": "verify <Verify yourself on our server>",
+        "Support": "add | remove | new | close | rename",
+        "FiveM": "server1 | server2 | cad | news | keys",
+        "Tools": "whois = IP Lookup | myname | userrole | dm = DM a user in the server",
+        "Music": "",
+        "Misc": "covid = all/US/JP ETC | weather",
+        "Stats": "fortnite | steam | overwatch | csgo",
+        "Owner": "shutdown | blacklist | leave | reboot | reload | setstatus | setgame | gann | backdoor"
+    },
 
     "module_toggles": {
-        "welcome_leave_channel": false,
+        "welcome_channel": true,
+        "leave_channel": true,
         "join_role": false,
         "verify": false,
         "logs": true,
         "moderation_commands": true,
+        "Bot_Server_Add_message": true,
         "mod_logs": true,
         "fun_commands": true,
         "utility_commands": true,
         "ticket_system": true,
         "filter_lang_links": false,
-        "member_count_channel": true,
+        "member_count_channel": false,
         "General_module": true,
         "Owner_module": true,
         "Misc_module": true,
         "jokes_module": true,
         "info_module": true,
+        "GameStats_module": true,
         "Tools_module": true,
         "emojis_module": true,
         "Randomstuff_module": true,
         "Servers_module": true,
         "level_module": true,
+        "Music_module": false,
         "giveaway_module": false,
         "nsfw_module": true,
         "memes_module": true,
         "economy_module": false,
+        "invite_module": false,
         "verify_module": true
     },
 
     "channel_setup": {
-        "welcome_channel": "722653744453517333",
-        "general_logs_channel": "722653744453517333",
-        "kick_logs_channel": "722653744453517333",
-        "ban_logs_channel": "722653744453517333",
-        "warning_logs_channel": "722653744453517333",
-        "mute_logs_channel": "722653744453517333",
-        "command_logs_channel": "722653744453517333",
-        "ticket_category": "769747792427745292"
+        "welcome_channel": "769744122591445002",
+        "leave_channel": "769750071574921217",
+        "general_logs_channel": "769746200714674196",
+        "kick_logs_channel": "769746200714674196",
+        "ban_logs_channel": "769746200714674196",
+        "warning_logs_channel": "769746200714674196",
+        "mute_logs_channel": "769746200714674196",
+        "command_logs_channel": "769746200714674196",
+        "ticket_category": "769746200714674196"
     },
 
     "join_roles": {
@@ -66,12 +179,12 @@
     },
 
     "suggestion_setup": {
-        "suggestion_channel": "734050255586328667"
+        "suggestion_channel": "769811432380170292"
     },
 
     "verify_setup": {
-        "verify_channel": "722655983142305832",
-        "verify_role": "722652326208208946"
+        "verify_channel": "769748622556266566",
+        "verify_role": "769740832864731136"
     },
 
     "giveaway_Setup": {
@@ -96,5 +209,10 @@
 
     "member_count_module": {
         "member_count_channel": "761012629275541509"
+    },
+
+    "r6_setup": {
+        "email": "Ianjkian@gmail.com",
+        "password": "Hockey50!"
     }
 }
