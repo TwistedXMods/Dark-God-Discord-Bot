@@ -2,7 +2,7 @@
 const Discord = require("discord.js")
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     if (!message.channel.name.startsWith(`ticket-`)) return message.channel.send(`Your not in a ticket channel.`).then(msg => msg.delete(5000));
         // Confirm delete - with timeout (Not command)
         message.channel.send(`Are you sure you want to close this ticket? Type ***yes*** if you do.`)

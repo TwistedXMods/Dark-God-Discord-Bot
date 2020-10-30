@@ -3,12 +3,12 @@ const cooldown = new Set()
 
 module.exports.run = async (client, message, args) => {
 
-  message.delete();
+  
 
     try {
 
             if (cooldown.has(message.author.id)) {
-    let cooldownemb = new Discord.RichEmbed()
+    let cooldownemb = new Discord.MessageEmbed()
     .setAuthor(`${message.author.username} Cooldown..`, message.author.displayAvatarURL)
     .setDescription(`You need to wait 10 seconds!`)
     .setColor(botconfig["bot_setup"].main_embed_color)
@@ -26,7 +26,7 @@ module.exports.run = async (client, message, args) => {
       
         let emojis;
         if (message.guild.emojis.size === 0) emojis = 'There are no emojis on this server.';
-        let emojisemb = new Discord.RichEmbed()
+        let emojisemb = new Discord.MessageEmbed()
         .setTitle(`${message.guild.name} Emojis`)
         .setDescription(`${message.guild.emojis.map(e => e).join(' ')}`)
         message.channel.send(emojisemb);

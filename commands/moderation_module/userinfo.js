@@ -1,56 +1,92 @@
-const Discord = require("discord.js");
-const fs = require("fs");
+const Discord = require('discord.js');
+const moment = require("moment");
 const botconfig = require("../../botconfig.json");
 
+const status = {
+    online: "Online",
+    idle: "Idle",
+    dnd: "Do Not Disturb",
+    offline: "Offline/Invisible"
+};
 
-module.exports.run = async (bot, message, args) => {
-    message.delete();
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Invalid permissions.").then(msg => msg.delete(10000));
+exports.run = (client, message, args) =>{
 
-    let warns = JSON.parse(fs.readFileSync("warnings.json", "utf8"));
-        let user;
-        if (message.mentions.users.first()) {
-          user = message.mentions.users.first();
-        } else {
-            user = message.author;
-        }
+    
+    var permissions = [];
+    var acknowledgements = 'None';
+   
+    const member = message.mentions.members.first() || message.guild.members.get(args[0]) || message.member;
+    //const randomColor = "#FC0000".replace(/0/g, function () { return (~~(Math.random() * 16)).toString(16); }); 
+    
+    if(message.member.hasPermission("KICK_MEMBERS")){
+        permissions.push("Kick Members");
+    }
+    
+    if(message.member.hasPermission("BAN_MEMBERS")){
+        permissions.push("Ban Members");
+    }
+    
+    if(message.member.hasPermission("ADMINISTRATOR")){
+        permissions.push("Administrator");
+    }
 
-        if(!warns[user.id]) warns[user.id] = {
-            warns: 0
-        };
+    if(message.member.hasPermission("MANAGE_MESSAGES")){
+        permissions.push("Manage Messages");
+    }
+    
+    if(message.member.hasPermission("MANAGE_CHANNELS")){
+        permissions.push("Manage Channels");
+    }
+    
+    if(message.member.hasPermission("MENTION_EVERYONE")){
+        permissions.push("Mention Everyone");
+    }
+
+    if(message.member.hasPermission("MANAGE_NICKNAMES")){
+        permissions.push("Manage Nicknames");
+    }
+
+    if(message.member.hasPermission("MANAGE_ROLES")){
+        permissions.push("Manage Roles");
+    }
+
+    if(message.member.hasPermission("MANAGE_WEBHOOKS")){
+        permissions.push("Manage Webhooks");
+    }
+
+    if(message.member.hasPermission("MANAGE_EMOJIS")){
+        permissions.push("Manage Emojis");
+    }
+
+    if(permissions.length == 0){
+        permissions.push("No Key Permissions Found");
+    }
+
+    if(`<@${member.user.id}>` == message.guild.owner){
+        acknowledgements = 'Server Owner';
+    }
+    if (!message.guild) return;
+
+
+    const embed = new Discord.MessageEmbed()
+        .setDescription(`<@${member.user.id}>`)
+        .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
+        .setColor(botconfig["bot_setup"].main_embed_color)
+        .setFooter(`ID: ${message.author.id}`)
+        .setThumbnail(member.user.displayAvatarURL)
+        .setTimestamp()
+        .addField("Status",`${status[member.user.presence.status]}`, true)
+        .addField('Joined at: ',`${moment(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
+        .addField("Created at: ",`${moment(message.author.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
+        .addField("Permissions: ", `${permissions.join(', ')}`, true)
+        .addField(`Roles [${member.roles.cache.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).length}]`,`${member.roles.cache.filter(r => r.id !== message.guild.id).map(roles => `<@&${roles.id }>`).join(" **|** ") || "No Roles"}`, true)
+        .addField("Acknowledgements: ", `${acknowledgements}`, true);
         
-        const member = message.guild.member(user);
-        let warnlevel = warns[user.id].warns;
-        
-        //Discord rich embed
-        let UserInfoEmbed = new Discord.RichEmbed()
-            UserInfoEmbed.setColor(botconfig["bot_setup"].main_embed_color)
-            UserInfoEmbed.setAuthor(`${user.username}\'s User Information`, user.avatarURL)
-            UserInfoEmbed.addField("Name:", `${user.toString()}`, true)
-            UserInfoEmbed.addField(`Name Hash:`, `${user.username}#${user.discriminator}`, true)
-            UserInfoEmbed.addField("Nickname:", `${member.nickname !== null ? `${member.nickname}` : 'None'}`, true)
+    message.channel.send({embed});
 
-            UserInfoEmbed.addField("Created Account At:", `${user.createdAt.toLocaleString()}`, true)
-            UserInfoEmbed.addField("Joined Server At:", `${member.joinedAt.toLocaleString()}`, true)
-            UserInfoEmbed.addField("ID:", `${user.id}`, true)
-
-            UserInfoEmbed.addField("Status:", `${user.presence.status}`, true)
-            UserInfoEmbed.addField("Game:", `${user.presence.game ? user.presence.game.name : 'None'}`, true)
-            UserInfoEmbed.addField("Highest Role:", member.highestRole, true)
-
-            UserInfoEmbed.addBlankField(false)
-
-            UserInfoEmbed.addField("Warning Count:", `${warnlevel}`, true)
-
-            if(message.author.avatarURL) {
-                UserInfoEmbed.setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`, `${message.author.avatarURL}`)
-            } else {
-                UserInfoEmbed.setFooter(`Replying to ${message.author.username}#${message.author.discriminator}`)
-            }
-
-        message.channel.send(UserInfoEmbed).then(msg => msg.delete(60000)); 
 }
 
+
 module.exports.help = {
-    name: "userinfo"
+    name: "userinfo1"
 }

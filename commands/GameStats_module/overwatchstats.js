@@ -5,7 +5,7 @@ const overwatch = require("overwatch-api");
 
 module.exports = {
     run: async (bot, message, args) => {
-        message.delete();
+        
         if(!args[0]) return message.channel.send(`${botconfig["bot_messages"].overwatch_supply}`);
         if(!args[1] || (args[1] && !["pc", "xbl", "psn"].includes(args[1]))) return message.channel.send(`${botconfig["bot_messages"].overwatch_error}`);
         if(args[0].includes("#")) args[0] = args[0].replace(/#/g, "-");

@@ -5,7 +5,7 @@ var Jimp = require('jimp');
 
 exports.run = (client, message, args) => {  
 
-    message.delete();
+    
     var r = Math.floor(Math.random()*256);
     var g = Math.floor(Math.random()*256);
     var b = Math.floor(Math.random()*256);
@@ -28,7 +28,7 @@ exports.run = (client, message, args) => {
         console.error(err);
     });
 
-    const embed = new Discord.RichEmbed()    
+    const embed = new Discord.MessageEmbed()    
         .addField("Hex",`${hexColor}`)
         .addField("RGB", colorResult)
         .attachFile(newImageColor);

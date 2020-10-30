@@ -1,7 +1,7 @@
 const cooldown = new Set();
 exports.run = (client, msg) => {
 
-  message.delete();
+  
   /*
     Checks if author is inside the cooldown list
     */

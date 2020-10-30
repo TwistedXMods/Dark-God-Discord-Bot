@@ -6,7 +6,7 @@ const customisation = require('./../../JS/customisation.json');
 const cooldown = new Set();
 exports.run = async (client, message, args, tools) => {
 
-  message.delete();
+  
     /*
     Checks if author is inside the cooldown list
     */
@@ -25,7 +25,7 @@ setTimeout(() => {
     const { body } = await superagent
     .get("https://nekos.life/api/v2/img/poke");
     
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
     .setTitle(`OwO, ${message.author.username} poked ${message.mentions.users.first().username}`)
     .setImage(body.url) 

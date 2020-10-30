@@ -3,7 +3,7 @@ const Subiex = require('../../index.js')
 const config = require('../../botconfig.json')
 
 module.exports.run = async (bot, message, args) => {
-  message.delete();
+  
   var args = message.content.split(' ')
   message.react('☑')
   var timeOut = args[0]

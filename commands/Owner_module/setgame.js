@@ -1,6 +1,7 @@
+const setPresence = require("discord.js")
 exports.run = (client, message, args) => {
 
-  message.delete();
+  
   if (message.author.id !== "392855285263499274") return message.reply('You do not have the permission to use this command!');
     if(!args[0]) return;
     if(args[0] === 'game') return message.reply('Please tell me a game to play!');

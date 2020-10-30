@@ -4,7 +4,7 @@ const botconfig = require("../../botconfig.json");
 const cooldown = new Set();
 module.exports.run = async (bot, message, args ) => {
   //run: async (bot, message, args) => {
-    message.delete();
+    
     // fetch the data from the API
     const data = await fetch(`http://ipwhois.app/json/${args}`).then(response => {
       return response.json();
@@ -33,7 +33,7 @@ setTimeout(() => {
 }, 5000);
 
     // we got the data successfully - send a response message
-    message.author.send(new Discord.RichEmbed()
+    message.author.send(new Discord.MessageEmbed()
       .setThumbnail(`https://i.ibb.co/6b1PtGh/IP.jpg`)
       .setColor(botconfig["bot_setup"].main_embed_color)
       .setAuthor(`IP Lookup Response`, message.author.avatarURL)

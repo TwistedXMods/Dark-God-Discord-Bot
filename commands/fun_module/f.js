@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const customisation = require('../../JS/customisation.json');
 
 exports.run = async (client, message, args) => {
-    message.delete();
+    
     if(args && args.length > 1){
         message.channel.send(`Press F to pay respects **${args.join(' ')}** :regional_indicator_f:`)
     }else{

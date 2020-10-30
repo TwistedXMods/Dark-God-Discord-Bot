@@ -3,7 +3,7 @@ const cowsay = require('cowsay');
 const cooldown = new Set();
 exports.run = (client, message, args) => {
 
-  message.delete();
+  
   try {
   /*
   Checks if author is inside the cooldown list

@@ -4,7 +4,7 @@ const ms = require("ms");
 const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     let warns = JSON.parse(fs.readFileSync("./warnings.json", "utf8"));
 
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Invalid permissions.").then(msg => msg.delete(10000));
@@ -27,7 +27,7 @@ module.exports.run = async (bot, message, args) => {
         if (err) console.log(err)
     });
 
-    let warnEmbed = new Discord.RichEmbed()
+    let warnEmbed = new Discord.MessageEmbed()
         .setDescription("User Warning")
         .setAuthor(message.author.username)
         .setColor(botconfig["bot_setup"].main_embed_color)
@@ -37,7 +37,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Reason", reason)
         .addField("Number of Warnings", warns[wUser.id].warns)
         .setFooter(botconfig["bot_setup"].copyright);
-    let warnChannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].warning_logs_channel);
+    let warnChannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].warning_logs_channel);
     if(!warnChannel) return console.log("Channel not found (Config: 'warning_logs_channel')");
 
     warnChannel.send(warnEmbed);

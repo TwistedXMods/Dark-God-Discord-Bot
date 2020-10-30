@@ -4,7 +4,7 @@ const Utils = require('../../JS/utils')
 
 //Subiex.registerCommand('gayrate', 'default', (message, bot) => {
   module.exports.run = async (bot, message,) => {
-    message.delete();
+    
   let myMention = message.mentions.users.array()[0]
 
   const anti = '392855285263499274'

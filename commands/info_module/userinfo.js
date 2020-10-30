@@ -11,7 +11,7 @@ const status = {
 
 exports.run = (client, message, args) =>{
 
-    message.delete();
+    
     var permissions = [];
     var acknowledgements = 'None';
    
@@ -66,7 +66,7 @@ exports.run = (client, message, args) =>{
         acknowledgements = 'Server Owner';
     }
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
         .setDescription(`<@${member.user.id}>`)
         .setAuthor(`${member.user.tag}`, member.user.displayAvatarURL)
         .setColor(botconfig["bot_setup"].main_embed_color)
@@ -77,7 +77,7 @@ exports.run = (client, message, args) =>{
         .addField('Joined at: ',`${moment(member.joinedAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
         .addField("Created at: ",`${moment(message.author.createdAt).format("dddd, MMMM Do YYYY, HH:mm:ss")}`, true)
         .addField("Permissions: ", `${permissions.join(', ')}`, true)
-        .addField(`Roles [${member.roles.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).length}]`,`${member.roles.filter(r => r.id !== message.guild.id).map(roles => `<@&${roles.id }>`).join(" **|** ") || "No Roles"}`, true)
+        .addField(`Roles [${member.roles.cache.filter(r => r.id !== message.guild.id).map(roles => `\`${roles.name}\``).length}]`,`${member.roles.cache.filter(r => r.id !== message.guild.id).map(roles => `<@&${roles.id }>`).join(" **|** ") || "No Roles"}`, true)
         .addField("Acknowledgements: ", `${acknowledgements}`, true);
         
     message.channel.send({embed});

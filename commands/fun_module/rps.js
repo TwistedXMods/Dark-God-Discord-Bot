@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     var choice = args[0];
     if (choice == "paper" || choice == "p") {
         var numb = Math.floor(Math.random() * 100);

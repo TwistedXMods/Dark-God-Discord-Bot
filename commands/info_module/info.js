@@ -4,7 +4,7 @@ let days = 0;
 let week = 0;
 
 exports.run = (client, message, args) =>{
-    message.delete();
+    
     let uptime = ``;
     let totalSeconds = (client.uptime / 1000);
     let hours = Math.floor(totalSeconds / 3600);
@@ -32,10 +32,10 @@ exports.run = (client, message, args) =>{
 
     uptime += `${days} days, ${hours} hours, ${minutes} minutes and ${seconds} seconds`;
 
-    let serverembed = new Discord.RichEmbed()
+    let serverembed = new Discord.MessageEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
         .setAuthor(`Dark God`, client.user.displayAvatarURL)
-        .addField(`Version`,`8.0`, true)
+        .addField(`Version`,`9.0`, true)
         .addField(`Library`,`Discord.js` , true)
         .addField(`Creator`,`Twisted X Modz#6666`, true)
         .addField(`Servers`, `${client.guilds.size}`, true)

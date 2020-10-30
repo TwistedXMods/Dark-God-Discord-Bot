@@ -3,7 +3,7 @@ const fs = require('fs');
 
 exports.run = (client, message, args) =>{
 
-    message.delete();
+    
     const query = message.content.split(' ');
 
     try{

@@ -16,7 +16,7 @@ module.exports.run = async (bot, message, args) => {
     });
 
 
-    const warnEmbed = new Discord.RichEmbed()
+    const warnEmbed = new Discord.MessageEmbed()
         .setDescription("User Warning(s) Removed")
         .setColor(botconfig["bot_setup"].main_embed_color)
         .addField("Removed By", `${message.author} - Hash: ${message.author.tag} - ID: ${message.author.id}`)
@@ -24,7 +24,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Removed In", `${message.channel} - ID: ${message.channel.id}`)
         .addField("New Number of Warnings", warns[wUser.id].warns);
 
-    let warnchannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].warning_logs_channel);
+    let warnchannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].warning_logs_channel);
     if(!warnchannel) return console.log("Channel not found (Config: 'warning_logs_channel')");
 
     warnchannel.send(warnEmbed);

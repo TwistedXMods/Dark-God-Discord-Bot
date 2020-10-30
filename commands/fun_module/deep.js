@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const Subiex = require('../../index.js')
+const botconfig = require("../../botconfig.json");
 const deep_quotes = [
     "How can mirrors be real if our eyes aren\'t real?",
     "It's true that we don't know what we've got until we lose it, but it's also true that we don't know what we've been missing until it arrives.",
@@ -68,11 +69,12 @@ const deep_quotes = [
 
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
 
     
-    let index = Math.floor(Math.random() * (deep_quotes.length)) // Math.random() returns a float from 0 - 1.
-    message.channel.send(deep_quotes[index])
+ let index = Math.floor(Math.random() * (deep_quotes.length)) // Math.random() returns a float from 0 - 1.
+message.channel.send(deep_quotes[index])
+
  ['deep', 'funny'], 'Get a random funny quote!', '[]'
 },
 

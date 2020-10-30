@@ -100,7 +100,7 @@ module.exports = {
 
 			user.addRole(role);
 
-			let VIPembed = new Discord.RichEmbed()
+			let VIPembed = new Discord.MessageEmbed()
 				.setTitle('**Congratulations**, you are offically a **VIP**!!!')
 				.setAuthor(`${message.author.username}`, `${message.author.displayAvatarURL}`)
 				.setDescription('VIP are granted extra permission to manage some parts of the server.')

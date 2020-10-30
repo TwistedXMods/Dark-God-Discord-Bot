@@ -3,7 +3,7 @@ const botconfig = require("../../botconfig.json");
 
 
 module.exports.run = async (message) => {
-  //message.delete();
+  //
   const { guild } = message
 
   guild.fetchInvites().then((invites) => {
@@ -20,7 +20,7 @@ module.exports.run = async (message) => {
 
       inviteCounter[name] = (inviteCounter[name] || 0) + uses
     })
-    let bot1embed = new Discord.RichEmbed()
+    let bot1embed = new Discord.MessageEmbed()
 
     .setAuthor(`Server Invites`)
     .setColor(botconfig["bot_setup"].main_embed_color)

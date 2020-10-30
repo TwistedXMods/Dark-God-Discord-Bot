@@ -3,8 +3,8 @@ const Discord = require("discord.js");
 const botconfig = require("../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
-    let botembed = new Discord.RichEmbed()
+    
+    let botembed = new Discord.MessageEmbed()
     .setDescription("Dark God Bot Information")
     .setColor(botconfig["bot_setup"].main_embed_color)
     .setThumbnail("")

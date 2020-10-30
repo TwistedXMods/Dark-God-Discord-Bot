@@ -5,7 +5,7 @@ const url = 'https://www.reddit.com/r/dankmemes/hot/.json?limit=100'
 
 //Subiex.registerCommand('meme', 'default', (message, bot) => {
   module.exports.run = async (bot, message,) => {
-    message.delete();
+    
   https.get(url, (result) => {
     var body = ''
     result.on('data', (chunk) => {
@@ -18,7 +18,7 @@ const url = 'https://www.reddit.com/r/dankmemes/hot/.json?limit=100'
       var index = response.data.children[Math.floor(Math.random() * 99) + 1].data
       if (index.post_hint !== 'image') {
         var text = index.selftext
-        const textembed = new Discord.RichEmbed()
+        const textembed = new Discord.MessageEmbed()
           .setTitle(subRedditName)
           .setColor(15158332)
           .setDescription(`[${title}](${link})\n\n${text}`)
@@ -31,7 +31,7 @@ const url = 'https://www.reddit.com/r/dankmemes/hot/.json?limit=100'
       var link = 'https://reddit.com' + index.permalink
       var subRedditName = index.subreddit_name_prefixed
       if (index.post_hint !== 'image') {
-        const textembed = new Discord.RichEmbed()
+        const textembed = new Discord.MessageEmbed()
           .setTitle(subRedditName)
           .setColor(15158332)
           .setDescription(`[${title}](${link})\n\n${text}`)
@@ -39,7 +39,7 @@ const url = 'https://www.reddit.com/r/dankmemes/hot/.json?limit=100'
 
         message.channel.send(textembed)
       }
-      const imageembed = new Discord.RichEmbed()
+      const imageembed = new Discord.MessageEmbed()
         .setTitle(subRedditName)
         .setImage(image)
         .setColor(15158332)

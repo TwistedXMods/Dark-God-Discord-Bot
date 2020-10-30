@@ -24,11 +24,11 @@ const mapping = {
   const Discord = require('discord.js')
   module.exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 
-    message.delete();
+    
     try {
       
             if (cooldown.has(message.author.id)) {
-      let cooldownemb = new Discord.RichEmbed()
+      let cooldownemb = new Discord.MessageEmbed()
       .setAuthor(`${message.author.username} Cooldown..`, message.author.displayAvatarURL)
       .setDescription(`You need to wait 10 seconds!`)
       .setColor(botconfig["bot_setup"].main_embed_color)

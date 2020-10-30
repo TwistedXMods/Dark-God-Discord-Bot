@@ -1,5 +1,5 @@
 module.exports.run = async (client, api, config, message, args) => {
-    message.delete();
+    
 
         const users = client.users;
 

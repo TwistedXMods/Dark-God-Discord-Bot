@@ -1,6 +1,6 @@
 exports.run = (client, message, args) => {
 
-  message.delete();
+  
     if (message.author.id !== "392855285263499274") return message.reply('You do not have the permission to use this command!');
   
     message.channel.send('Are you sure you want to shut me down?\n\nReply with \`cancel\` to **abort** the shutdown. The shutdown will self-abort in 30 seconds.');

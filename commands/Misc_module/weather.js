@@ -4,7 +4,7 @@ var YQL = require('yql');
 
 exports.run = (client, message, args) =>{
 
-    message.delete();
+    
     const city = message.content.split(' '); 
 
     if(isNaN(city[1])){
@@ -46,7 +46,7 @@ exports.run = (client, message, args) =>{
             sunRise = "falling";
         }
 
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
             .setTitle(`Current weather in ${location.city} part of the region ${location.region} in ${location.country}`)
             .setThumbnail(`https://westwoodhorizon.com/wp-content/uploads/2018/03/category_weather_500x500.png`)
             .setColor(botconfig["bot_setup"].main_embed_color)

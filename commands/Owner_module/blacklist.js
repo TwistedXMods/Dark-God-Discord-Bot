@@ -4,8 +4,8 @@ const customisation = require('./../../JS/customisation.json');
 
 exports.run = async (client, message, args) => {
 
-  message.delete();
-    //message.delete();
+  
+    //
     if (message.author.id !== "392855285263499274") return message.reply('You do not have the permission to use this command!');
     let blacklist = JSON.parse(fs.readFileSync("./../../jsonFiles/blacklist.js", "utf8"));
     let user = args[0];

@@ -3,7 +3,7 @@ const botconfig = require("../../botconfig.json");
 
   module.exports.run = async (bot, message, args) => {
 
-    message.delete();
+    
     let Str = message.content.slice(bot.prefix.length + 2 + 1);
     if (!args[0])
       return message.channel.send(`You did not specify your advert!`);

@@ -4,7 +4,7 @@ const ms = require("ms");
 const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     let bUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
         if(!bUser) return message.channel.send("Please provide a name.").then(msg => msg.delete(10000));
         let bReason = args.join(" ").slice(22);
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
         if(bUser.hasPermission("BAN_MEMBERS")) return message.channel.send("Invalid Permissions.").then(msg => msg.delete(10000));
 
         if(botconfig["module_toggles"].mod_logs) {
-            let banEmbed = new Discord.RichEmbed()
+            let banEmbed = new Discord.MessageEmbed()
             .setDescription("User Banned")
             .setColor(botconfig["bot_setup"].main_embed_color)
             .addField("Banned User", `${bUser} - Hash: ${bUser.user.tag} - ID: ${bUser.id}`)
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
             .addField("Time", message.createdAt)
             .addField("Reason", `${bReason}.`);
 
-            let banChannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].ban_logs_channel);
+            let banChannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].ban_logs_channel);
             if(!banChannel) return console.log("Channel not found (Config: 'ban_logs_channel')");
             banChannel.send(banEmbed)
         }

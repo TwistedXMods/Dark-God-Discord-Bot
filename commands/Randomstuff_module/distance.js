@@ -4,14 +4,14 @@ const botconfig = require("../../botconfig.json");
 
 exports.run = async (client, message, args) => {
 
-    message.delete();
+    
     try{
         const coordinates = message.content.split(' ');
         var distance = geolib.getDistance({latitude: coordinates[1], longitude: coordinates[2] }, {latitude: coordinates[3], longitude: coordinates[4]});
 
         var distanceKM = geolib.convertUnit('km', distance, 4)
 
-        let serverembed = new Discord.RichEmbed()
+        let serverembed = new Discord.MessageEmbed()
         .setColor(botconfig["bot_setup"].main_embed_color)
             .addField("latitude1 & longitude1", `${coordinates[1]}, ${coordinates[2]}`, true)
             .addField("latitude2 & longitude2", `${coordinates[3]}, ${coordinates[4]}`, true)

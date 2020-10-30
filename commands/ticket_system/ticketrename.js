@@ -2,7 +2,7 @@
 const Discord = require("discord.js")
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     if(!args[0]) return message.channel.send("Please specify a channel name. Use a \`-\` at the start to add to the existing name.");
     let channelRename = args.join('-')
 

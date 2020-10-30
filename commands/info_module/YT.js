@@ -1,8 +1,8 @@
 const Discord = require('discord.js');
 const botconfig = require("../../botconfig.json");
 module.exports.run = async (bot, message, args) => {
-    message.delete();
-    let botembed = new Discord.RichEmbed()
+    
+    let botembed = new Discord.MessageEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
 
 .addField('My YouTube channel' , 'https://www.youtube.com/channel/UC1cISzeYvNfdYBLV0lJkhvQ')

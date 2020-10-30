@@ -5,7 +5,7 @@ const { stripIndents } = require("common-tags");
 const dateFormat = require("dateformat");
 
     module.exports.run = async (bot, message, args) => {
-        message.delete();
+        
         const token = "9053E34FE0DD63A7F506FCB3B29EBC15"; //I reset mine.
         if(!args[0]) return message.channel.send("Please provide an account name!");
         const url = `http://api.steampowered.com/ISteamUser/ResolveVanityURL/v0001/?key=${token}&vanityurl=${args.join(" ")}`;

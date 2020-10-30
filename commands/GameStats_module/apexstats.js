@@ -5,7 +5,7 @@ const botconfig = require("../../botconfig.json")
 
 module.exports = {
     run: async (client, message, args) => {
-        message.delete();
+        
 
         const platforms = {
             'pc': '5', 

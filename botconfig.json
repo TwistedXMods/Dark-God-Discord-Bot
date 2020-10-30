@@ -1,11 +1,11 @@
 {
     "bot_setup": {
         "prefix": "--",
-        "master":"Your discord id",
-        "token": "your bot token",
+        "master":"your discord id",
+        "token": "Your Bot token",
         "copyright": "© 2018 - 2020 Twisted X Modz - All Rights Reserved",
         "bot_status": "online",
-        "bot_game_type": "WATCHING",
+        "bot_game_type": "playing",
         "bot_game": "Happy Holloween | --help",
         "main_embed_color": "#ff0000",
         "Thumbnail": "https://cdn.discordapp.com/avatars/451505551118041093/a_22817e02468fae43a52c43c929017513.gif?size=1024",
@@ -94,7 +94,34 @@
         "invite_error": "Could not folder invite.",
         "invite_loaded": "- invite Module Loaded!",
         "music_error": "Could not folder Music.",
-        "music_loaded": "- Music Module Loaded!"
+        "music_loaded": "- Music Module Loaded!",
+        "help_error": "Could not folder Help",
+        "help_loaded": "- Help Module Loaded!"
+        
+    },
+
+    
+    "bot_menu": {
+        "Admin_Menu_use": "help-admin",
+        "Emojis_Menu_use": "help-emojis",
+        "Fun_Menu_use": "help-fun",
+        "General_Menu_use": "help-general",
+        "info_Menu_use": "help-info",
+        "Jokes_Menu_use": "help-jokes",
+        "Meme_Menu_use": "help-memes",
+        "NSFW_Menu_use": "help-nsfw",
+        "Moderation_Menu_use": "help-mod",
+        "Randomstuff_Menu_use": "help-random",
+        "Utility_Menu_use": "help-utility",
+        "Level_Menu_use": "help-level" ,
+        "Verify_Menu_use": "help-verify",
+        "Support_Menu_use": "help-support",
+        "FiveM_Menu_use": "help-fivem",
+        "Tools_Menu_use": "help-tools",
+        "Music_Menu_use": "help-music",
+        "Misc_Menu_use": "help-misc",
+        "Stats_Menu_use": "help-stats",
+        "Owner_Menu_use": "help-owner"
     },
 
 
@@ -121,11 +148,23 @@
         "Owner": "shutdown | blacklist | leave | reboot | reload | setstatus | setgame | gann | backdoor"
     },
 
+    "channel_setup": {
+        "welcome_channel": "769744122591445002",
+        "leave_channel": "769750071574921217",
+        "general_logs_channel": "769746200714674196",
+        "kick_logs_channel": "769746200714674196",
+        "ban_logs_channel": "769746200714674196",
+        "warning_logs_channel": "769746200714674196",
+        "mute_logs_channel": "769746200714674196",
+        "command_logs_channel": "769746200714674196",
+        "ticket_category": "769747792427745292"
+    },
+
+    
     "module_toggles": {
-        "welcome_channel": true,
-        "leave_channel": true,
-        "join_role": false,
-        "verify": false,
+        "welcome": true,
+        "leave": true,
+        "role": false,
         "logs": true,
         "moderation_commands": true,
         "Bot_Server_Add_message": true,
@@ -134,7 +173,6 @@
         "utility_commands": true,
         "ticket_system": true,
         "filter_lang_links": false,
-        "member_count_channel": false,
         "General_module": true,
         "Owner_module": true,
         "Misc_module": true,
@@ -152,19 +190,8 @@
         "memes_module": true,
         "economy_module": false,
         "invite_module": false,
+        "Help_module": true,
         "verify_module": true
-    },
-
-    "channel_setup": {
-        "welcome_channel": "769744122591445002",
-        "leave_channel": "769750071574921217",
-        "general_logs_channel": "769746200714674196",
-        "kick_logs_channel": "769746200714674196",
-        "ban_logs_channel": "769746200714674196",
-        "warning_logs_channel": "769746200714674196",
-        "mute_logs_channel": "769746200714674196",
-        "command_logs_channel": "769746200714674196",
-        "ticket_category": "769746200714674196"
     },
 
     "join_roles": {

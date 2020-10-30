@@ -3,7 +3,7 @@ const Discord = require("discord.js");
 const ms = require("ms");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     let Timer = args[0];
     if(!args[0]){
         return message.channel.send("Please enter a period of time, with either `s, m or h` at the end!");

@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
 
-    message.delete();
+    
     const setStatus = message.content.split(' ');
 
    // if (!message.author.id !== "392855285263499274") return message.reply('You do not have the permission to use this command!');

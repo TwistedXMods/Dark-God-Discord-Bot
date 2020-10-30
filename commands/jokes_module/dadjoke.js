@@ -1,6 +1,6 @@
 const dadjoke = require('../../JS/dadjoke.json');
 exports.run = (client, message, args) => {
-    message.delete();
+    
     args = args.join(" ");
     message.channel.send(`${dadjoke[Math.floor(Math.random() * dadjoke.length)]}`);
 }

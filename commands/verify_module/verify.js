@@ -7,7 +7,7 @@ exports.run = async (bot, message, args) => {
       return;
     }
     
-    await message.delete();
+    await 
     await message.member.addRole(botconfig["verify_setup"].verify_role);
   
     // Use this if you want to remove the role from the user.

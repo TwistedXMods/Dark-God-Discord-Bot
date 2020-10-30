@@ -6,11 +6,11 @@ const fortnite = require("simple-fortnite-api"); client = new fortnite("fe5d03e2
 
     module.exports.run = async (bot, message, args) => {
 
-        message.delete();
+        
 
         if(!args[0]) return message.channel.send("Please supply a username.");
-        if(args[1] && !["lifetime", "solo", "duo", "squad"].includes(args[1])) return message.channel.send("Usage: `!fortnite <username> <gametype>`\nGameTypes: Lifetime, Solo, Duo, Squad");
-        let gametype = args[1] ? args[1].toLowerCase() : "lifetime";
+        if(args[1] && !["lifetime", "solo", "duo", "squad"].includes(args[1])) return message.channel.send("Usage: `--fortnite <username> <gametype>`\nGameTypes: Lifetime, Solo, Duo, Squad");
+        let gametype = args[1] ? args[1].toLowerCase() : "ifetime";
 
         let data = await client.find(args[0])
         if(data && data.code === 404) return message.channel.send("Unable to find a user with that username.")

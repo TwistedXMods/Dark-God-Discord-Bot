@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const botconfig = require("../../botconfig.json");
 const cooldown = new Set();
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     /*
     Checks if author is inside the cooldown list
     */
@@ -17,7 +17,7 @@ module.exports.run = async (bot, message, args) => {
           cooldown.delete(message.author.id && message.guild.id);
       }, 5000);
 
-    let botembed = new Discord.RichEmbed()
+    let botembed = new Discord.MessageEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
     .setTitle('Bot News')
     .addField(':rotating_light: All updates for Twisted X Modz', 'will be listed Here :rotating_light:')

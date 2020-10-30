@@ -3,7 +3,7 @@ const botconfig = require("../../botconfig.json");
 
 exports.run = (client, message, args) =>{
 
-    message.delete();
+    
     var dogs = [
         'https://cdn.shopify.com/s/files/1/1324/6367/collections/Why_all_dogs_love_us_close_up_large.jpg?v=1487160259',
         'https://static01.nyt.com/images/2018/02/11/realestate/11dogs-topbreeds-Chihuahua/11dogs-topbreeds-Chihuahua-master495.jpg',
@@ -22,7 +22,7 @@ exports.run = (client, message, args) =>{
 
     ];
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
         .setDescription(`Oh look i found a cuty dog :dog:`)
         .setImage(dogs[Math.floor(Math.random()*dogs.length)])

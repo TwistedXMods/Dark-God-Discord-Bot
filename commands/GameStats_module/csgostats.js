@@ -6,7 +6,7 @@ const botconfig = require("../../botconfig.json")
 
 module.exports = {
     run: async (client, message, args) => {
-        message.delete();
+        
 
         const platforms = ['steam']
         const platform = args[0]

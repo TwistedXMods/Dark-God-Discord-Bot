@@ -19,7 +19,7 @@ const botconfig = require("../../botconfig.json");
       .setColor(botconfig["bot_setup"].main_embed_color)
       .setFooter(botconfig["bot_setup"].copyright);
     rChannel.send(_);
-    message.delete();
+    
   },
 module.exports.help = {
   name: "a",

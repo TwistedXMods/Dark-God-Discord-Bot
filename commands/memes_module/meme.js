@@ -4,7 +4,7 @@ const botconfig = require("../../botconfig.json");
 const cooldown = new Set();
 exports.run = async (client, message, args, level) => { // eslint-disable-line no-unused-vars
 
-  message.delete();
+  
   try {
 
      /*
@@ -23,7 +23,7 @@ setTimeout(() => {
 
 randomPuppy('memes')
     .then(url => {
-        const embed = new Discord.RichEmbed()
+        const embed = new Discord.MessageEmbed()
            // .setTimestamp()
             .setImage(url)
             .setColor(botconfig["bot_setup"].main_embed_color)

@@ -3,7 +3,7 @@ const ms = require("ms");
 const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send("Invalid permissions.").then(msg => msg.delete(10000));
     const mod = message.author;
 
@@ -17,14 +17,14 @@ module.exports.run = async (bot, message, args) => {
     }
 
     if(botconfig["module_toggles"].mod_logs) {
-        const muteEmbed = new Discord.RichEmbed()
+        const muteEmbed = new Discord.MessageEmbed()
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setDescription('User Muted')
             .addField('User', `${user} - Hash: ${user.user.tag} - ID: ${user.id}`)
             .addField("Muted By", `${mod} - Hash: ${mod.tag} - ID: ${mod.id}`)
             .addField('Time', `${time}`)
 
-        let muteChannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].mute_logs_channel);
+        let muteChannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].mute_logs_channel);
         if (!muteChannel) return console.log("Channel not found (Config: 'mute_logs_channel')");
         muteChannel.send(muteEmbed);
     }

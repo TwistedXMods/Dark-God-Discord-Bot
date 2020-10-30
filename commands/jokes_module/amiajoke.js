@@ -4,10 +4,10 @@ const customisation = require('./../../JS/customisation.json');
 
 exports.run = async (client, message, args) => {
 
-  message.delete();
+  
     let avatar = message.mentions.users.size ? message.mentions.users.first().avatarURL : message.author.avatarURL;
     
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
     .setImage(`https://api.alexflipnote.dev/amiajoke?image=` + avatar) 
     .setFooter(botconfig["bot_setup"].copyright);

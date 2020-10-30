@@ -13,14 +13,14 @@ module.exports.run = async (bot, message, args) => {
     let aicon = message.author.displayAvatarURL;
 
     if (slots[result1] === slots[result2] && slots[result3]) {
-        let wEmbed = new Discord.RichEmbed()
+        let wEmbed = new Discord.MessageEmbed()
             .setFooter("You Won!", aicon)
             .setTitle(':slot_machine:Slots:slot_machine:')
             .addField('Result:', slots[result1] + slots[result2] + slots[result3], true)
             .setColor(botconfig["bot_setup"].main_embed_color)
         message.channel.send(wEmbed).then(msg => msg.delete(10000));
     } else {
-        let embed = new Discord.RichEmbed()
+        let embed = new Discord.MessageEmbed()
             .setFooter('You Lost!', aicon)
             .setTitle(':slot_machine:Slots:slot_machine:')
             .addField('Result', slots[result1] + slots[result2] + slots[result3], true)

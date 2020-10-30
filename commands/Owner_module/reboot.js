@@ -2,10 +2,10 @@ const Discord = require('discord.js')
 const botconfig = require("../../botconfig.json");
 exports.run = async (client, message, args, level) => {// eslint-disable-line no-unused-vars
 
-  message.delete();
+  
   if (message.author.id !== "392855285263499274") return message.reply('You do not have the permission to use this command!');
   try {
- let rebembed = new Discord.RichEmbed()
+ let rebembed = new Discord.MessageEmbed()
  .setColor(botconfig["bot_setup"].main_embed_color)
  .setTitle('Rebooting...')
  .setDescription(`Bot rebooting...`)

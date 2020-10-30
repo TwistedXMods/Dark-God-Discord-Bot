@@ -8,7 +8,7 @@ const types = ['multiple', 'boolean'];
 const difficulties = ['easy', 'medium', 'hard'];
 const choices = ['A', 'B', 'C', 'D'];
 module.exports.run = async (bot, message, args) => {
-	message.delete();
+	
 	
     if (args.length < 2) {
             return message.reply(`, please follow the format: {this.name} {this.usage}.`);

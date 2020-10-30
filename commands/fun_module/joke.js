@@ -3,7 +3,7 @@ const Subiex = require('../../index.js');
 const oneLinerJoke = require('one-liner-joke');
 
 module.exports.run = async (bot, message, args) => {
-  message.delete();
+  
   var joke = oneLinerJoke.getRandomJoke();
   message.channel.send({embed: {
   color: 15158332,

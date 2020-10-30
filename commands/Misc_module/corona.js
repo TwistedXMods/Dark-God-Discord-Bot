@@ -4,7 +4,7 @@ const botconfig = require("../../botconfig.json");
 const track = new NovelCovid();
 const cooldown = new Set();
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
 //module.exports = {
   
   //run: async (bot, message, args) => {
@@ -30,7 +30,7 @@ setTimeout(() => {
     if(args.join(" ") === "all") {
       let corona = await track.all() //it will give global cases
       
-      let botembed = new discord.RichEmbed()
+      let botembed = new Discord.MessageEmbed()
       .setTitle("Global Cases")
       .setColor(botconfig["bot_setup"].main_embed_color)
       .setDescription("Sometimes cases number may differ from small amount.")
@@ -46,7 +46,7 @@ setTimeout(() => {
     } else {
       let corona = await track.countries(args.join(" ")) //change it to countries
       
-      let botembed = new discord.RichEmbed()
+      let botembed = new Discord.MessageEmbed()
       .setTitle(`${corona.country}`)
       .setColor(botconfig["bot_setup"].main_embed_color)
       .setDescription("Sometimes cases number may differ from small amount.")

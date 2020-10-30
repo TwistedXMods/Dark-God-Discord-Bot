@@ -1,6 +1,6 @@
 
   module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     if (!message.member.permissions.has("MANAGE_MESSAGES"))
       return message.channel.send("You do not have enough permissions!");
     let user =

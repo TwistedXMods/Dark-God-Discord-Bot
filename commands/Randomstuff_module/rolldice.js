@@ -3,10 +3,10 @@ const botconfig = require("../../botconfig.json");
 
 exports.run = (client, message, args) =>{
 
-    message.delete();
+    
     var dice = [1, 2, 3, 4, 5, 6];
 
-    const embed = new Discord.RichEmbed()
+    const embed = new Discord.MessageEmbed()
     .setColor(botconfig["bot_setup"].main_embed_color)
         .addField("First dice", dice[Math.floor(Math.random()*dice.length)], true)
         .addField("Second dice", dice[Math.floor(Math.random()*dice.length)], true)

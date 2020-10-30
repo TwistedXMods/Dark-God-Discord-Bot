@@ -6,7 +6,7 @@ module.exports.run = async (bot, message, args) => {
     message.channel.overwritePermissions(message.guild.id, {
       SEND_MESSAGES: null
   });
-  let enligne = new Discord.RichEmbed()
+  let enligne = new Discord.MessageEmbed()
   .addField(`🔓 Channel Unlocked`,`**The Channel has been unlocked by ${message.author}**`)
   
   message.channel.send(enligne)

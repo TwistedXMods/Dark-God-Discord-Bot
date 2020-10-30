@@ -4,7 +4,7 @@ const { getInfo } = require("../../JS/xp.js")
 const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     const user = message.mentions.users.first() || message.author;
     
     if(user.id === bot.user.id) { //IF BOT
@@ -20,7 +20,7 @@ module.exports.run = async (bot, message, args) => {
     const {level, remxp, levelxp} = getInfo(xp);
     if(xp === 0) return message.channel.send(`**${user.tag}** is out of the xp`)
     
-    let botembed = new discord.RichEmbed()
+    let botembed = new Discord.MessageEmbed()
     .setAuthor(user.username, message.guild.iconURL())
     .setColor(botconfig["bot_setup"].main_embed_color)
     .setThumbnail(user.avatarURL())

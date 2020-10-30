@@ -1,7 +1,7 @@
 const request = require('superagent');
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
 
         const user = message.mentions.members.first() || message.guild.members.get(args[0]) || message.guild.members.get(message.author.id);
         request.get('https://evilinsult.com/generate_insult.php')

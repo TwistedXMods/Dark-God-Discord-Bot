@@ -3,7 +3,7 @@ const fs = require("fs");
 const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
     let kUser = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     
     if(!kUser) return message.channel.send("Please provide a name.").then(msg => msg.delete(10000));
@@ -13,7 +13,7 @@ module.exports.run = async (bot, message, args) => {
     if(kUser.hasPermission("KICK_MEMBERS")) return message.channel.send("Invalid Permissions.").then(msg => msg.delete(10000));
 
     if(botconfig["module_toggles"].mod_logs) {
-        let kickEmbed = new Discord.RichEmbed()
+        let kickEmbed = new Discord.MessageEmbed()
         .setDescription("User Kicked")
         .setColor(botconfig["bot_setup"].main_embed_color)
         .addField("Kicked User", `${kUser} - Hash: ${kUser.user.tag} - ID: ${kUser.id}`)
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
         .addField("Time", message.createdAt)
         .addField("Reason", `${kReason}.`);
 
-        let kickChannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].kick_logs_channel);
+        let kickChannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].kick_logs_channel);
         if(!kickChannel) return console.log("Channel not found (Config: 'kick_logs_channel')");
         kickChannel.send(kickEmbed);
     }

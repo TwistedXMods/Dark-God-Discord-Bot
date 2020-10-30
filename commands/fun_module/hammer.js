@@ -1,6 +1,6 @@
 const settings = require('../../botconfig.json');
 exports.run = (client, message, args) => {
-    message.delete();
+    
   let user = message.mentions.users.first();
   if (message.mentions.users.size < 1) return message.reply('You can\'t throw a hammer at thin air, pick someone you baka.');
   if (message.mentions.users.first().id == client.user.id) return message.channel.send(`No u, ***threws hammer at ${message.mentions.users.first().username}***`)

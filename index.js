@@ -485,17 +485,38 @@ if(botconfig["module_toggles"].Music_module) {
     });
 }
 
+if(botconfig["module_toggles"].Help_module) {
+    fs.readdir("./commands/Help_module/", (err, files) => {
+        if(err) console.log(err);
+        let jsfile = files.filter(f => f.split(".").pop() === "js")
+        if(jsfile.length <= 0){
+            console.log('\x1b[31m%s\x1b[0m',`${botconfig["bot_Commands_logs"].help_error}`);
+            return;
+        }
+
+        jsfile.forEach((f, i) =>{
+            let props = require(`./commands/Help_module/${f}`);
+            if(botconfig["bot_setup"].debug_mode) {
+                console.log(`${f} loaded!`);
+            }
+            bot.commands.set(props.help.name, props);
+            bot.commands.set(props.help.name2, props);
+        });
+        console.log('\x1b[36m%s\x1b[0m',`${botconfig["bot_Commands_logs"].help_loaded}`)
+    });
+}
+
+
 bot.on('error', console.error);
 bot.on("ready", async () => {
     console.log('\x1b[32m%s\x1b[0m',`${botconfig["bot_messages"].Online_log} ${bot.guilds.size} servers.`);
-    bot.user.setActivity(botconfig["bot_setup"].bot_game, {type: botconfig["bot_setup"].bot_game_type});
+    bot.user.setPresence(botconfig["bot_setup"].bot_game, {type: botconfig["bot_setup"].bot_game_type});
     bot.user.setStatus(botconfig["bot_setup"].bot_status)
 })
 
-
 bot.on("guildCreate", server => {
     if(botconfig["module_toggles"].Bot_Server_Add_message) {
-    let embed = new Discord.RichEmbed()
+    let embed = new Discord.MessageEmbed()
       .setTitle(`${botconfig["bot_messages"].Thanks_message}`)
       .addField('Bot Name',`${botconfig["bot_messages"].Bot_name}`)
       .addField('Darks',`${botconfig["bot_messages"].Important}`)
@@ -526,9 +547,9 @@ bot.on("message", async message => {
 
     // Bot Command Logs
     if(botconfig["module_toggles"].mod_logs) {
-        const cmdChannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].command_logs_channel);
+        const cmdChannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].command_logs_channel);
         if(!cmdChannel) return console.log("Channel not found (Config: 'commands_logs_channel')");
-        const logEmbed = new Discord.RichEmbed()
+        const logEmbed = new Discord.MessageEmbed()
         .setAuthor("Command Logs")
         .setColor(botconfig["bot_setup"].main_embed_color)
         .setDescription(`**${message.author} (${message.author.tag})** used command: \n\`\`\`css\n${cmd} ${args}\`\`\``.split(',').join(' '))
@@ -540,38 +561,38 @@ bot.on("message", async message => {
 
 // Welcome message
 bot.on('guildMemberAdd', member => {
-    if(botconfig["module_toggles"].join_role) {
+    if(botconfig["module_toggles"].role) {
         var role = member.guild.roles.find(role => role.id === botconfig["join_roles"].role);
         if (!role) return console.log("role not found (Config: 'role')");
         member.addRole(role);
     }
-    if(botconfig["module_toggles"].welcome_channel) {
-// Send the message to a designated channel on a server:
+    if(botconfig["module_toggles"].welcome) {
+        // Send the message to a designated channel on a server:
   const channel = member.guild.channels.find(channel => channel.id === botconfig["channel_setup"].welcome_channel);
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
-  let embed1 = new Discord.RichEmbed()
+  let embed1 = new Discord.MessageEmbed()
   .setTitle(`${botconfig["bot_messages"].Welcome_message} ${member.user.tag}`, member.user.displayAvatarURL)
   //.setAuthor(`Welcome to the Discord server,`, member.user.displayAvatarURL,)
   .setThumbnail(member.user.displayAvatarURL)
   .addField('Date Joined', member.user.createdAt, true)
   .addField('Total Members', member.guild.memberCount, true)
-
     channel.send(embed1);
     }
 });
 
+
 // Leave Message
 bot.on('guildMemberRemove', member => {
-    if(botconfig["module_toggles"].leave_channel) {
+    if(botconfig["module_toggles"].leave) {
 
         // Send the message to a designated channel on a server:
   const channel = member.guild.channels.find(channel => channel.id === botconfig["channel_setup"].leave_channel);
   // Do nothing if the channel wasn't found on this server
   if (!channel) return;
   // Send the message, mentioning the member
-  let embed2 = new Discord.RichEmbed()
+  let embed2 = new Discord.MessageEmbed()
   //.setTitle("leave")
   .setAuthor(`${member.user.tag} Has left the server.`, member.user.displayAvatarURL,)
   .setThumbnail(member.user.displayAvatarURL)
@@ -590,10 +611,11 @@ bot.on("messageDelete", message => {
         if (message.content.startsWith(".")) return undefined;
         if (message.content.startsWith("?")) return undefined;
         if (message.content.startsWith("-")) return undefined;
+        if (message.content.startsWith("--")) return undefined;
         if (message.author.bot) return undefined;
         if (message.content.length > 1020) return undefined;
 
-        let logEmbed = new Discord.RichEmbed()
+        let logEmbed = new Discord.MessageEmbed()
         .setAuthor("Action Logs", bot.user.avatar_url)
         .setColor(botconfig["bot_setup"].main_embed_color)
         .setTimestamp()
@@ -604,7 +626,7 @@ bot.on("messageDelete", message => {
         .addField("Channel:", message.channel)
         .addField("Message Content:", `${message.content}.`)
 
-        let logChannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].general_logs_channel);
+        let logChannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].general_logs_channel);
         if (!logChannel) return console.log("leave channel not found (Config: 'general_logs_channel')");
         logChannel.send(logEmbed);
     }
@@ -618,7 +640,7 @@ bot.on("messageUpdate", (oldMessage, newMessage) => {
         if (newMessage.content.length > 1020) return undefined;
         if (!oldMessage.guild) return undefined;
 
-        let logEmbed = new Discord.RichEmbed()
+        let logEmbed = new Discord.MessageEmbed()
         .setAuthor("Action Logs", bot.user.avatar_url)
         .setColor(botconfig["bot_setup"].main_embed_color)
         .setTimestamp()
@@ -630,7 +652,7 @@ bot.on("messageUpdate", (oldMessage, newMessage) => {
         .addField("Message Author:", `${newMessage.author.toString()} - Hash: ${newMessage.author.tag} - ID: ${newMessage.author.id}`)
         .addField("Channel", oldMessage.channel)
 
-        let logChannel = newMessage.guild.channels.find(channel => channel.id === botconfig["channel_setup"].general_logs_channel);
+        let logChannel = newMessage.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].general_logs_channel);
         if (!logChannel) return console.log("leave channel not found (Config: 'general_logs_channel')");
         logChannel.send(logEmbed);
     }
@@ -684,7 +706,7 @@ bot.on("guildMemberUpdate", async (oldMember, newMember) => {
             let newName = cName.newNickname;
             let member = newMember.guild.members.get(entry.target.id);
 
-            let logEmbed = new Discord.RichEmbed()
+            let logEmbed = new Discord.MessageEmbed()
             .setAuthor("Action Logs", bot.user.avatarURL)
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setTimestamp()
@@ -700,7 +722,7 @@ bot.on("guildMemberUpdate", async (oldMember, newMember) => {
             logEmbed.addField("Old Nickname", oldName)
             logEmbed.addField("New Nickname", newName)
 
-            let logChannel = message.guild.channels.find(channel => channel.id === botconfig["channel_setup"].general_logs_channel);
+            let logChannel = message.guild.channels.cache.find(channel => channel.id === botconfig["channel_setup"].general_logs_channel);
             if(!logChannel) return console.log("Channel not found (Config: 'general_logs_channel')");
             logChannel.send(logEmbed);
         }
@@ -708,7 +730,7 @@ bot.on("guildMemberUpdate", async (oldMember, newMember) => {
         if (Change.rolesGiven.update) {
             let addedRole = Change.rolesGiven.updateArray;
 
-            let logEmbed = new Discord.RichEmbed()
+            let logEmbed = new Discord.MessageEmbed()
             .setAuthor("Action Logs", bot.user.avatarURL)
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setTimestamp()
@@ -726,7 +748,7 @@ bot.on("guildMemberUpdate", async (oldMember, newMember) => {
         if (Change.rolesRemoved.update) {
             let removedRole = Change.rolesRemoved.updateArray
 
-            let logEmbed = new Discord.RichEmbed()
+            let logEmbed = new Discord.MessageEmbed()
             .setAuthor("Action Logs", bot.user.avatarURL)
             .setColor(botconfig["bot_setup"].main_embed_color)
             .setTimestamp()
@@ -755,7 +777,7 @@ if(botconfig["module_toggles"].filter_lang_links) {
             case message.member.roles.has(allowedRole.id):
                 return;
             case new RegExp(botconfig["filter_module"].filter_words.join("|")).test(message.content.toLowerCase()):
-                message.delete();
+                
                 return message.channel.send(`${botconfig["bot_messages"].use_language_message}`).then(msg => msg.delete(10000));
         };
     });
@@ -770,7 +792,7 @@ if(botconfig["module_toggles"].filter_lang_links) {
             case message.member.roles.has(allowedRole.id): // Debug Error Code: ERRID08
                 return;
             case new RegExp(botconfig["filter_module"].filter_links.join("|")).test(message.content.toLowerCase()):
-                message.delete();
+                
                 return message.channel.send(`${botconfig["bot_messages"].post_language_message}`).then(msg => msg.delete(10000)); 
 
         };

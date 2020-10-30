@@ -1,6 +1,6 @@
 exports.run = (client, message, args) =>{
 
-    message.delete();
+    
     const setStatus = message.content.split(' ');
 
     if(setStatus[1] === 'afk'){

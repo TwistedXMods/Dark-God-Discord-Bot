@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 const botconfig = require("../../botconfig.json");
 
 module.exports.run = async (bot, message, args) => {
-    message.delete();
+    
 
         const month = parseInt(args[0]);
         const day = parseInt(args[1]);
@@ -22,7 +22,7 @@ module.exports.run = async (bot, message, args) => {
 			const body = JSON.parse(text);
 			const events = body.data.Events;
 			const event = events[Math.floor(Math.random() * events.length)];
-			const embed = new Discord.RichEmbed()
+			const embed = new Discord.MessageEmbed()
             .setColor(botconfig["bot_setup"].main_embed_color)
 				.setURL(body.url)
 				.setTitle(`On this day (${body.date})...`)

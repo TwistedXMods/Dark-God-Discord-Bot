@@ -3,7 +3,7 @@ const botconfig = require("../../botconfig.json");
 
 exports.run = (client, message, args) =>{
 
-    message.delete();
+    
     function checkBots(guild) {
         let botCount = 0;
         guild.members.forEach(member => {
@@ -30,7 +30,7 @@ exports.run = (client, message, args) =>{
     }
 
     let sicon = message.guild.iconURL;
-    let serverembed = new Discord.RichEmbed()
+    let serverembed = new Discord.MessageEmbed()
         .setAuthor(`${message.guild.name} - Informations`, message.guild.iconURL)
         .setColor(botconfig["bot_setup"].main_embed_color)
         .addField('Server owner', message.guild.owner, true)
