@@ -11,7 +11,7 @@
   "dependencies": {
     "common-tags": "^1.8.0",
     "cowsay": "^1.4.0",
-    "date-and-time": "^0.14.1",
+    "date-and-time": "^0.14.2",
     "dateformat": "^3.0.3",
     "discord.js": "^12.4.1",
     "fs": "0.0.1-security",
